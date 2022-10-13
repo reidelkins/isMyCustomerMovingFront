@@ -1,7 +1,7 @@
 {
   "company": {
-    "name": "React landing page 2021",
-    "logo": "/assets/images/logo.png"
+    "name": "didMyCustomerMove LLC",
+    "logo": "/assets/images/newLogoBlackText.svg"
   },
   "navigation": [
     {
@@ -19,8 +19,8 @@
     }
   ],
   "callToAction": {
-    "text": "Get started",
-    "href": "#"
+    "text": "Login",
+    "href": "https://app.ismycustomermoving.com/login"
   },
   "mainHero": {
     "title": "Are They Moving?",
@@ -29,11 +29,11 @@
     "img": "/assets/images/minthome.png",
     "primaryAction": {
       "text": "Get started",
-      "href": "#"
+      "href": "https://app.ismycustomermoving.com/register"
     },
     "secondaryAction": {
       "text": "Login",
-      "href": ""
+      "href": "https://app.ismycustomermoving.com/login"
     }
   },
   "product": {
@@ -127,18 +127,18 @@
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       },
       {
-        "name": "Register",
-        "href": "#",
-        "content": ""
-      },
-      {
         "name": "About",
         "href": "#",
         "content": ""
       },
       {
-        "name": "Something",
-        "href": "#",
+        "name": "Register",
+        "href": "https://app.ismycustomermoving.com/register",
+        "content": ""
+      },
+      {
+        "name": "Login",
+        "href": "https://app.ismycustomermoving.com/login",
         "content": ""
       }
     ],
