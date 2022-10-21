@@ -2,8 +2,8 @@ import React from "react";
 
 import config from '../config/index.json';
 
-function Team() {
-    const {team } = config;
+const Team = () => {
+    const { team } = config;
     const { title, teammembers } = team;
     return (
         <div className={`bg-background py-8`} id="team">
