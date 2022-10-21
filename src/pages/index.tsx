@@ -10,6 +10,7 @@ import MainHero from '../components/MainHero';
 import MainHeroImage from '../components/MainHeroImage';
 import Pricing from '../components/Pricing';
 import Product from '../components/Product';
+import Team from '../components/Team';
 
 const App = () => {
   return (
@@ -34,7 +35,8 @@ const App = () => {
       </LazyShow>
       <LazyShow>
         <>
-          <Product />
+          {/* <Product /> */}
+          <Team />
           <Canvas />
         </>
       </LazyShow>
@@ -45,6 +47,7 @@ const App = () => {
         <>
           <Canvas />
           <About />
+          
         </>
       </LazyShow>
       <Analytics />

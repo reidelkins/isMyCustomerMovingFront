@@ -5,12 +5,12 @@
   },
   "navigation": [
     {
-      "name": "About",
-      "href": "product"
-    },
-    {
       "name": "Features",
       "href": "features"
+    },
+    {
+      "name": "About Us",
+      "href": "team"
     },
 
     {
@@ -54,7 +54,7 @@
   "features": {
     "title": "Top User Experience",
     "subtitle": "Resell To Your Favorite Customers",
-    "description": "Put something here I don't know anymore",
+    "description": "Acquiring a customer is expensive, never lose one again because they moved and forgot about you",
     "items": [
       {
         "name": "Backtested Data",
@@ -123,22 +123,22 @@
     "sections": [
       {
         "name": "Contact Us",
-        "href": "#",
+        "href": "/",
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       },
       {
         "name": "About",
-        "href": "#",
+        "href": "/",
         "content": ""
       },
       {
-        "name": "Register",
-        "href": "https://app.ismycustomermoving.com/register",
+        "name": "Terms of Use",
+        "href": "/termsofuse",
         "content": ""
       },
       {
-        "name": "Login",
-        "href": "https://app.ismycustomermoving.com/login",
+        "name": "Privacy Policy",
+        "href": "/privacypolicy",
         "content": ""
       }
     ],
@@ -147,5 +147,28 @@
       "twitter": "https://twitter.com/issaafkattan",
       "linkedin": "https://www.linkedin.com/in/issaaf-kattan/"
     }
+  },
+  "team": {
+    "title": "Meet the Team",
+    "teammembers": [
+      {
+        "name": "Matthew Swilley",
+        "headshot": "/assets/team/matt.jpeg",
+        "title": "Business Operations, Founder",
+        "about": "wassup"
+      },
+      {
+        "name": "JB Brewster",
+        "headshot": "/assets/team/jb.jpeg",
+        "title": "Customer Acquistion, Founder",
+        "about": "wassup"
+      },
+      {
+        "name": "Reid Elkins",
+        "headshot": "/assets/team/reid.jpeg",
+        "title": "Developer, Founder",
+        "about": "wassup"
+      }
+    ]
   }
 }
