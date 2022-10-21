@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import config from '../config/index.json';
-import Divider from './Divider';
+import config from "../config/index.json";
+import Divider from "./Divider";
 
 const Product = () => {
   const { product } = config;
@@ -13,12 +13,12 @@ const Product = () => {
         <h1
           className={`w-full my-2 text-5xl font-bold leading-tight text-center text-primary`}
         >
-          {product.title.split(' ').map((word, index) => (
+          {product.title.split(" ").map((word, index) => (
             <span
               key={index}
-              className={index % 2 ? 'text-primary' : 'text-border'}
+              className={index % 2 ? "text-primary" : "text-border"}
             >
-              {word}{' '}
+              {word}{" "}
             </span>
           ))}
         </h1>
