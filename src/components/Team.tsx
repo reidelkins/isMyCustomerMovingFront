@@ -1,33 +1,45 @@
 import React from "react";
 
-import config from '../config/index.json';
+import config from "../config/index.json";
 
 const Team = () => {
-    const { team } = config;
-    const { title, teammembers } = team;
-    return (
-        <div className={`bg-background py-8`} id="team">
-            <div className="container flex justify-center mx-auto pt-16">
-                <div>
-                    <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-6 ">{title}</h1>
-                </div>
-            </div>
-            <div className="w-full bg-gray-100 px-10 pt-10">
-                <div className="container mx-auto">
-                    <div className="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
-                        {teammembers.map((teammember) => (
-                            <div className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                                <div className="rounded overflow-hidden shadow-md bg-white">
-                                    <div className="absolute -mt-20 w-full flex justify-center">
-                                        <div className="h-32 w-32">
-                                            <img src={teammember.headshot} alt="" className="rounded-full object-cover h-full w-full shadow-md" />
-                                        </div>
-                                    </div>
-                                    <div className="px-6 mt-16" style={{marginBottom:"5%"}}>
-                                        <div className="font-bold text-3xl text-center pb-1">{teammember.name}</div>
-                                        <p className="text-gray-800 text-sm text-center text-primary">{teammember.title}</p>
-                                        <p className="text-center text-gray-600 text-base pt-3 font-normal">{teammember.about}</p>
-                                        {/* <div className="w-full flex justify-center pt-5 pb-5">
+  const { team } = config;
+  const { title, teammembers } = team;
+  return (
+    <div className={`bg-background py-8`} id="team">
+      <div className="container flex justify-center mx-auto pt-16">
+        <div>
+          <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-6 ">
+            {title}
+          </h1>
+        </div>
+      </div>
+      <div className="w-full bg-gray-100 px-10 pt-10">
+        <div className="container mx-auto">
+          <div className="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
+            {teammembers.map((teammember) => (
+              <div className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
+                <div className="rounded overflow-hidden shadow-md bg-white">
+                  <div className="absolute -mt-20 w-full flex justify-center">
+                    <div className="h-32 w-32">
+                      <img
+                        src={teammember.headshot}
+                        alt=""
+                        className="rounded-full object-cover h-full w-full shadow-md"
+                      />
+                    </div>
+                  </div>
+                  <div className="px-6 mt-16" style={{ marginBottom: "5%" }}>
+                    <div className="font-bold text-3xl text-center pb-1">
+                      {teammember.name}
+                    </div>
+                    <p className="text-gray-800 text-sm text-center text-primary">
+                      {teammember.title}
+                    </p>
+                    <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                      {teammember.about}
+                    </p>
+                    {/* <div className="w-full flex justify-center pt-5 pb-5">
                                             <a href="javascript:void(0)" className="mx-5">
                                                 <div>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="#718096" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="feather feather-github">
@@ -52,16 +64,15 @@ const Team = () => {
                                                 </div>
                                             </a>
                                         </div> */}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                        
-                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            ))}
+          </div>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default Team;
