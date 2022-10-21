@@ -1,1 +1,1 @@
-declare module '/src/components/Team'
+declare module '/src/components/Team.jsx'
