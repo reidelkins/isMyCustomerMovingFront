@@ -10,7 +10,7 @@ import MainHero from '../components/MainHero';
 import MainHeroImage from '../components/MainHeroImage';
 import Pricing from '../components/Pricing';
 // import Product from '../components/Product';
-import Team from '../components/Team';
+import {Team} from '../components/Team';
 
 const App = () => {
   return (
