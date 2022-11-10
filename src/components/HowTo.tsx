@@ -1,26 +1,30 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
-import Stack from "@mui/material/Stack";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-// import Check from "@mui/icons-material/Check";
 
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import FeedbackIcon from "@mui/icons-material/Feedback";
-import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+// import Stepper from "@mui/material/Stepper";
+// import Step from "@mui/material/Step";
+// import StepLabel from "@mui/material/StepLabel";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-// import StepConnector, {
-//   stepConnectorClasses,
-// } from "@mui/material/StepConnector";
+import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+import FeedbackIcon from "@mui/icons-material/Feedback";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import {
+  Step,
+  Stack,
+  Stepper,
+  StepLabel,
+  Box,
+  Button,
+  Typography,
+} from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { StepIconProps } from "@mui/material/StepIcon";
+import { styled } from "@mui/material/styles";
 
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+// import Box from "@mui/material/Box";
+// import Button from "@mui/material/Button";
+// import Typography from "@mui/material/Typography";
 
 import config from "../config/index.json";
-import { grey } from "@mui/material/colors";
 
 const HowTo = () => {
   const { howto } = config;
@@ -260,7 +264,7 @@ const HowTo = () => {
                   stepProps.completed = false;
                 }
                 return (
-                  <Step {...stepProps}>
+                  <Step key={title} {...stepProps}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
                       {step.title}
                     </StepLabel>
