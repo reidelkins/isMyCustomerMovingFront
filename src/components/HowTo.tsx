@@ -249,29 +249,27 @@ const HowTo = () => {
       >
         <Stack direction="column">
           <Stepper activeStep={activeStep}>
-            {steps.map(
-              (step: { title: {} | null | undefined }, index: number) => {
-                const stepProps: { completed?: boolean } = {};
-                const labelProps: {
-                  optional?: React.ReactNode;
-                } = {};
-                if (isStepOptional(index)) {
-                  labelProps.optional = (
-                    <Typography variant="caption">Optional</Typography>
-                  );
-                }
-                if (isStepSkipped(index)) {
-                  stepProps.completed = false;
-                }
-                return (
-                  <Step key={title} {...stepProps}>
-                    <StepLabel StepIconComponent={ColorlibStepIcon}>
-                      {step.title}
-                    </StepLabel>
-                  </Step>
+            {steps.map((step: any) => {
+              const stepProps: { completed?: boolean } = {};
+              const labelProps: {
+                optional?: React.ReactNode;
+              } = {};
+              if (isStepOptional(step.index)) {
+                labelProps.optional = (
+                  <Typography variant="caption">Optional</Typography>
                 );
               }
-            )}
+              if (isStepSkipped(step.index)) {
+                stepProps.completed = false;
+              }
+              return (
+                <Step key={step.title} {...stepProps}>
+                  <StepLabel StepIconComponent={ColorlibStepIcon}>
+                    {step.title}
+                  </StepLabel>
+                </Step>
+              );
+            })}
           </Stepper>
           <React.Fragment>
             <Box
