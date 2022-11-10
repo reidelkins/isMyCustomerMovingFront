@@ -25,19 +25,17 @@ const Pricing = () => {
             style={{
               border: "none",
               minHeight: "700px",
-              width: "1px",
+              // width: "1px",
               minWidth: "100%",
               width: "100%",
             }}
             name="booking"
             scrolling="no"
-            frameborder="0"
-            marginheight="0px"
-            marginwidth="0px"
+            frameBorder="0"
             width="100%"
             height="100%"
-            referrerpolicy="unsafe-url"
-            allowfullscreen
+            referrerPolicy="unsafe-url"
+            allowFullScreen
           ></iframe>
         </div>
 
