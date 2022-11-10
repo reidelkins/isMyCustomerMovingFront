@@ -4,18 +4,44 @@ import config from "../config/index.json";
 
 const Pricing = () => {
   const { pricing } = config;
-  const { items, title } = pricing;
-  const [firstPlan, secondPlan, thirdPlan] = items;
+  const { title, subtitle } = pricing;
+  // const [firstPlan, secondPlan, thirdPlan] = items;
 
   return (
     <section className={`bg-background py-8`} id="pricing">
-      <div className={`container mx-auto px-2 pt-4 pb-12 text-primary`}>
+      <div className={`container mx-auto px-2 pt-4 pb-12 text-primary `}>
         <h1
           className={`w-full my-2 text-5xl font-bold leading-tight text-center text-primary`}
         >
           {title}
         </h1>
-        <div className={`w-full mb-4`}>
+        <p className="mt-4 max-w-2xl text-2xl text-gray-900 lg:mx-auto text-center">
+          {subtitle}
+        </p>
+        <div className="flex flex-row justify-center items-center">
+          <iframe
+            src="https://letsmeet.io/jonathanbrewster/ismycustomermoving-demo"
+            // style="border:none; min-height: 700px; width: 1px; min-width: 100%; *width: 100%;"
+            style={{
+              border: "none",
+              minHeight: "700px",
+              width: "1px",
+              minWidth: "100%",
+              width: "100%",
+            }}
+            name="booking"
+            scrolling="no"
+            frameborder="0"
+            marginheight="0px"
+            marginwidth="0px"
+            width="100%"
+            height="100%"
+            referrerpolicy="unsafe-url"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        {/* <div className={`w-full mb-4`}>
           <div
             className={`h-1 mx-auto bg-primary w-64 opacity-25 my-0 py-0 rounded-t`}
           ></div>
@@ -117,7 +143,7 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

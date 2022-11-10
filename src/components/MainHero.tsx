@@ -14,10 +14,7 @@ const MainHero = () => {
           </span>
         </h1>
         <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-          The quickest and most effective system to <b>track</b> your past
-          clients and learn if they have moved and/or are moving soon so you can
-          ensure that they remember to <b>repurchase</b> your product and
-          services for wherever life is taking them.
+          {mainHero.description}
         </p>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
           <div className="rounded-md shadow">

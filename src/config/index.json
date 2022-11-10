@@ -1,6 +1,6 @@
 {
   "team": {
-    "title": "Meet the Team",
+    "title": "The IMCM Team",
     "teammembers": [
       {
         "name": "Matthew Swilley",
@@ -10,7 +10,7 @@
       },
       {
         "name": "JB Brewster",
-        "headshot": "/assets/team/jb.jpeg",
+        "headshot": "/assets/team/jb.png",
         "title": "Customer Acquistion, Founder",
         "about": ""
       },
@@ -46,10 +46,10 @@
     "href": "https://app.ismycustomermoving.com/login"
   },
   "mainHero": {
-    "title": "Are They Moving?",
-    "subtitle": "Find Out Now",
-    "description": "The quickest and most effective system to track your past clients and learn if they have moved and/or are moving soon so you can ensure that they remember to repurchase your product and services for wherever life is taking them.",
-    "img": "/assets/images/minthome.png",
+    "title": "Don't Lose Your Customers,",
+    "subtitle": "Move With Them!",
+    "description": "You don't know when your customers are moving, and they're too busy to remember your name. We instantly notify you when your customers list there home for sale, so you can be the first one to the new home.",
+    "img": "/assets/images/home.jpg",
     "primaryAction": {
       "text": "Get started",
       "href": "https://app.ismycustomermoving.com/register"
@@ -102,7 +102,8 @@
     ]
   },
   "pricing": {
-    "title": "Pricing",
+    "title": "Contact Us",
+    "subtitle": "Schedule a Demo, Ask a Question, or Get a Quote Today!",
     "items": [
       {
         "name": "Testing",
@@ -146,7 +147,7 @@
     "sections": [
       {
         "name": "Contact Us",
-        "href": "/",
+        "href": "pricing",
         "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
       },
       {
@@ -170,5 +171,32 @@
       "twitter": "https://twitter.com/issaafkattan",
       "linkedin": "https://www.linkedin.com/in/issaaf-kattan/"
     }
+  },
+  "howto": {
+    "title": "How Does It Work?",
+    "subtitle": "A Quick Walkthrough To Demonstrate The Product",
+    "description": "Our service is easy to use, just follow these steps and you'll be on your way to never losing a customer again!",
+    "steps": [
+      {
+        "title": "Make Your Customer List",
+        "description": "Create a csv file of all off your customers with column headers as shown above",
+        "img": "/assets/images/customerlist.png"
+      },
+      {
+        "title": "Upload The List",
+        "description": "Drag and Drop or Browse and Select to seamlessly upload your customer list",
+        "img": "/assets/images/upload.png"
+      },
+      {
+        "title": "Track Your Progress",
+        "description": "Get daily emails, create notes, mark who has been contacted, and track all of your progress in one place",
+        "img": "/assets/images/email.png"
+      },
+      {
+        "title": "Keep Your Customers, Increase Your Revenue",
+        "description": "You've already sold them once, now capitalize again!",
+        "img": "/assets/images/inprogress.png"
+      }
+    ]
   }
 }
