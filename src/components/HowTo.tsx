@@ -49,29 +49,29 @@ const HowTo = () => {
   //   },
   // }));
 
-  const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(
-    ({ theme, ownerState }) => ({
-      color:
-        theme.palette.mode === "dark" ? theme.palette.grey[700] : "#eaeaf0",
-      display: "flex",
-      height: 22,
-      alignItems: "center",
-      ...(ownerState.active && {
-        color: "#784af4",
-      }),
-      "& .QontoStepIcon-completedIcon": {
-        color: "#784af4",
-        zIndex: 1,
-        fontSize: 18,
-      },
-      "& .QontoStepIcon-circle": {
-        width: 8,
-        height: 8,
-        borderRadius: "50%",
-        backgroundColor: "currentColor",
-      },
-    })
-  );
+  // const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(
+  //   ({ theme, ownerState }) => ({
+  //     color:
+  //       theme.palette.mode === "dark" ? theme.palette.grey[700] : "#eaeaf0",
+  //     display: "flex",
+  //     height: 22,
+  //     alignItems: "center",
+  //     ...(ownerState.active && {
+  //       color: "#784af4",
+  //     }),
+  //     "& .QontoStepIcon-completedIcon": {
+  //       color: "#784af4",
+  //       zIndex: 1,
+  //       fontSize: 18,
+  //     },
+  //     "& .QontoStepIcon-circle": {
+  //       width: 8,
+  //       height: 8,
+  //       borderRadius: "50%",
+  //       backgroundColor: "currentColor",
+  //     },
+  //   })
+  // );
 
   // function QontoStepIcon(props: StepIconProps) {
   //   const { active, completed, className } = props;
@@ -190,24 +190,24 @@ const HowTo = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
+  // const handleSkip = () => {
+  //   if (!isStepOptional(activeStep)) {
+  //     // You probably want to guard against something like this,
+  //     // it should never occur unless someone's actively trying to break something.
+  //     throw new Error("You can't skip a step that isn't optional.");
+  //   }
 
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  //   setSkipped((prevSkipped) => {
+  //     const newSkipped = new Set(prevSkipped.values());
+  //     newSkipped.add(activeStep);
+  //     return newSkipped;
+  //   });
+  // };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+  // const handleReset = () => {
+  //   setActiveStep(0);
+  // };
 
   return (
     <section className={`bg-background py-8`} id="How To">
@@ -260,7 +260,7 @@ const HowTo = () => {
                   stepProps.completed = false;
                 }
                 return (
-                  <Step key={step.title} {...stepProps}>
+                  <Step {...stepProps}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
                       {step.title}
                     </StepLabel>
@@ -279,8 +279,8 @@ const HowTo = () => {
                 backgroundColor: "white",
               }}
               component="img"
-              src={`${steps[activeStep].img}`}
-              alt={steps[activeStep].title}
+              src={`${steps[activeStep]?.img}`}
+              alt={steps[activeStep]?.title}
             />
 
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
