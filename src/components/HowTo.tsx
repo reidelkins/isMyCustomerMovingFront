@@ -25,30 +25,29 @@ import { grey } from "@mui/material/colors";
 const HowTo = () => {
   const { howto } = config;
   const { title, subtitle, steps } = howto;
-  // const [firstPlan, secondPlan, thirdPlan] = items;
-  const QontoConnector = styled(StepConnector)(({ theme }) => ({
-    [`&.${stepConnectorClasses.alternativeLabel}`]: {
-      top: 10,
-      left: "calc(-50% + 16px)",
-      right: "calc(50% + 16px)",
-    },
-    [`&.${stepConnectorClasses.active}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        borderColor: "#784af4",
-      },
-    },
-    [`&.${stepConnectorClasses.completed}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        borderColor: "#784af4",
-      },
-    },
-    [`& .${stepConnectorClasses.line}`]: {
-      borderColor:
-        theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
-      borderTopWidth: 3,
-      borderRadius: 1,
-    },
-  }));
+  // const QontoConnector = styled(StepConnector)(({ theme }) => ({
+  //   [`&.${stepConnectorClasses.alternativeLabel}`]: {
+  //     top: 10,
+  //     left: "calc(-50% + 16px)",
+  //     right: "calc(50% + 16px)",
+  //   },
+  //   [`&.${stepConnectorClasses.active}`]: {
+  //     [`& .${stepConnectorClasses.line}`]: {
+  //       borderColor: "#784af4",
+  //     },
+  //   },
+  //   [`&.${stepConnectorClasses.completed}`]: {
+  //     [`& .${stepConnectorClasses.line}`]: {
+  //       borderColor: "#784af4",
+  //     },
+  //   },
+  //   [`& .${stepConnectorClasses.line}`]: {
+  //     borderColor:
+  //       theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
+  //     borderTopWidth: 3,
+  //     borderRadius: 1,
+  //   },
+  // }));
 
   const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(
     ({ theme, ownerState }) => ({
@@ -74,44 +73,44 @@ const HowTo = () => {
     })
   );
 
-  function QontoStepIcon(props: StepIconProps) {
-    const { active, completed, className } = props;
+  // function QontoStepIcon(props: StepIconProps) {
+  //   const { active, completed, className } = props;
 
-    return (
-      <QontoStepIconRoot ownerState={{ active }} className={className}>
-        {completed ? (
-          <Check className="QontoStepIcon-completedIcon" />
-        ) : (
-          <div className="QontoStepIcon-circle" />
-        )}
-      </QontoStepIconRoot>
-    );
-  }
+  //   return (
+  //     <QontoStepIconRoot ownerState={{ active }} className={className}>
+  //       {completed ? (
+  //         <Check className="QontoStepIcon-completedIcon" />
+  //       ) : (
+  //         <div className="QontoStepIcon-circle" />
+  //       )}
+  //     </QontoStepIconRoot>
+  //   );
+  // }
 
-  const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
-    [`&.${stepConnectorClasses.alternativeLabel}`]: {
-      top: 22,
-    },
-    [`&.${stepConnectorClasses.active}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        backgroundImage:
-          "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
-      },
-    },
-    [`&.${stepConnectorClasses.completed}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        backgroundImage:
-          "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
-      },
-    },
-    [`& .${stepConnectorClasses.line}`]: {
-      height: 3,
-      border: 0,
-      backgroundColor:
-        theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
-      borderRadius: 1,
-    },
-  }));
+  // const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
+  //   [`&.${stepConnectorClasses.alternativeLabel}`]: {
+  //     top: 22,
+  //   },
+  //   [`&.${stepConnectorClasses.active}`]: {
+  //     [`& .${stepConnectorClasses.line}`]: {
+  //       backgroundImage:
+  //         "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
+  //     },
+  //   },
+  //   [`&.${stepConnectorClasses.completed}`]: {
+  //     [`& .${stepConnectorClasses.line}`]: {
+  //       backgroundImage:
+  //         "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
+  //     },
+  //   },
+  //   [`& .${stepConnectorClasses.line}`]: {
+  //     height: 3,
+  //     border: 0,
+  //     backgroundColor:
+  //       theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
+  //     borderRadius: 1,
+  //   },
+  // }));
 
   const ColorlibStepIconRoot = styled("div")<{
     ownerState: { completed?: boolean; active?: boolean };
