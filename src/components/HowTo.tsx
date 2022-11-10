@@ -4,15 +4,15 @@ import Stack from "@mui/material/Stack";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Check from "@mui/icons-material/Check";
+// import Check from "@mui/icons-material/Check";
 
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import FeedbackIcon from "@mui/icons-material/Feedback";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import StepConnector, {
-  stepConnectorClasses,
-} from "@mui/material/StepConnector";
+// import StepConnector, {
+//   stepConnectorClasses,
+// } from "@mui/material/StepConnector";
 import { StepIconProps } from "@mui/material/StepIcon";
 
 import Box from "@mui/material/Box";
