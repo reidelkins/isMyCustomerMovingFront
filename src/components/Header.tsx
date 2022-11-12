@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 
 import config from "../config/index.json";
 
@@ -77,6 +77,7 @@ export default function Menu({ parent }: { parent: string }) {
               <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                 {navigation.map((item) => (
                   <Link
+                    key={item.name}
                     href={item.hrefElse}
                     className="font-medium text-gray-500 hover:text-gray-900"
                   >
@@ -143,6 +144,7 @@ export default function Menu({ parent }: { parent: string }) {
                 <div className="px-2 pt-2 pb-3 space-y-1">
                   {navigation.map((item) => (
                     <Link
+                      key={item.name}
                       href={item.hrefElse}
                       className="font-medium text-gray-500 hover:text-gray-900"
                     >
