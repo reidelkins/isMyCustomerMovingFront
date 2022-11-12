@@ -7,7 +7,7 @@ import About from "../components/About";
 export default function PrivacyPolicy() {
   return (
     <div className="bg-background grid gap-y-16 overflow-hidden">
-      <Header />
+      <Header parent="privacypolicy" />
       <div
         style={{
           marginLeft: "10%",

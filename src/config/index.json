@@ -29,16 +29,19 @@
   "navigation": [
     {
       "name": "Features",
-      "href": "features"
+      "hrefHome": "features",
+      "hrefElse": "/#features"
     },
     {
       "name": "About Us",
-      "href": "team"
+      "hrefHome": "team",
+      "hrefElse": "/#team"
     },
 
     {
       "name": "Pricing",
-      "href": "pricing"
+      "hrefHome": "pricing",
+      "hrefElse": "/#pricing"
     }
   ],
   "callToAction": {

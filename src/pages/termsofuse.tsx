@@ -7,7 +7,7 @@ import About from "../components/About";
 export default function TermsOfService() {
   return (
     <div className="bg-background grid gap-y-16 overflow-hidden">
-      <Header />
+      <Header parent="termsofuse" />
       <div
         style={{
           marginLeft: "10%",
