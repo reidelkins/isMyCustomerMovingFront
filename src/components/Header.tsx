@@ -11,7 +11,7 @@ import config from "../config/index.json";
 export default function Menu({ parent }: { parent: string }) {
   const { navigation, company, callToAction } = config;
   // const { navigation, callToAction } = config;
-  const { name: companyName, logo } = company;
+  const { logo } = company;
 
   return (
     <>
@@ -94,7 +94,7 @@ export default function Menu({ parent }: { parent: string }) {
           </nav>
         </div>
 
-        {/* <Transition
+        <Transition
           as={Fragment}
           enter="duration-150 ease-out"
           enterFrom="opacity-0 scale-95"
@@ -143,15 +143,10 @@ export default function Menu({ parent }: { parent: string }) {
                 <div className="px-2 pt-2 pb-3 space-y-1">
                   {navigation.map((item) => (
                     <Link
-                      spy={true}
-                      active="active"
-                      smooth={true}
-                      duration={1000}
-                      key={item.name}
-                      to={item.hrefElse}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                      href={item.hrefElse}
+                      className="font-medium text-gray-500 hover:text-gray-900"
                     >
-                      {item.hrefElse}
+                      {item.name}
                     </Link>
                   ))}
                 </div>
@@ -164,7 +159,7 @@ export default function Menu({ parent }: { parent: string }) {
               </a>
             </div>
           </Popover.Panel>
-        </Transition> */}
+        </Transition>
       </Popover>
     </>
   );
