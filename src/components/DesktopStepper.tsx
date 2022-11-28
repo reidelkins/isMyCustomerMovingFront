@@ -132,6 +132,10 @@ const DesktopStep: React.FC<Props> = ({
               Back
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
+            <Typography variant="subtitle1">
+              {steps[activeStep]?.description}
+            </Typography>
+            <Box sx={{ flex: "1 1 auto" }} />
             <Button
               color="inherit"
               disabled={activeStep === steps.length - 1}

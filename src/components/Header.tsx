@@ -7,10 +7,8 @@ import { Link as ScrollLink } from "react-scroll";
 
 import config from "../config/index.json";
 
-// const Menu = ({ MenuProps }) => {
 export default function Menu({ parent }: { parent: string }) {
   const { navigation, company, callToAction } = config;
-  // const { navigation, callToAction } = config;
   const { logo } = company;
 
   return (
@@ -39,7 +37,6 @@ export default function Menu({ parent }: { parent: string }) {
                     className="h-16 w-auto sm:h-16 cursor-pointer"
                     src={logo}
                   />
-                  {/* SUP */}
                 </Link>
                 <div className="-mr-2 flex items-center md:hidden">
                   <Popover.Button

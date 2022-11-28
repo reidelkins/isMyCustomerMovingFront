@@ -43,6 +43,12 @@ const HowTo = () => {
           {subtitle}
         </p>
       </div>
+      {/* <MobileStep
+        steps={steps}
+        handleBack={handleBack}
+        handleNext={handleNext}
+        activeStep={activeStep}
+      /> */}
       <BrowserView>
         <DesktopStep
           steps={steps}

@@ -24,7 +24,7 @@
   },
   "company": {
     "name": "didMyCustomerMove LLC",
-    "logo": "/assets/images/newLogoBlackText.svg"
+    "logo": "/assets/images/logo.svg"
   },
   "navigation": [
     {
@@ -51,7 +51,7 @@
   "mainHero": {
     "title": "Don't Lose Your Customers,",
     "subtitle": "Move With Them!",
-    "description": "You don't know when your customers are moving, and they're too busy to remember your name. We instantly notify you when your customers list there home for sale, so you can be the first one to the new home.",
+    "description": "You don't know when your customers are moving, and they're too busy to remember your name. We instantly notify you when your customers list their home for sale, so you can be the first one to the new home.",
     "img": "/assets/images/home.jpg",
     "primaryAction": {
       "text": "Get started",
@@ -182,7 +182,7 @@
     "steps": [
       {
         "title": "Make Your Customer List",
-        "description": "Create a csv file of all off your customers with column headers as shown above",
+        "description": "Create a csv file of all off your customers with column headers of Client Name, Address, Zip Code, and State. A template is available on the dashboard.",
         "img": "/assets/images/customerlist.png"
       },
       {
@@ -192,7 +192,7 @@
       },
       {
         "title": "Track Your Progress",
-        "description": "Get daily emails, create notes, mark who has been contacted, and track all of your progress in one place",
+        "description": "Receive daily emails, create notes, mark who has been contacted, and track all of your progress in one place",
         "img": "/assets/images/email.png"
       },
       {
