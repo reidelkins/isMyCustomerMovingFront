@@ -1,5 +1,8 @@
 import React from "react";
 
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js/pure";
+
 import About from "../components/About";
 import Analytics from "../components/Analytics";
 import Canvas from "../components/Canvas";
@@ -12,8 +15,12 @@ import MainHeroImage from "../components/MainHeroImage";
 import Pricing from "../components/Pricing";
 // import Product from '../components/Product';
 import Team from "../components/Team";
+import CheckoutForm from "../components/CheckoutForm";
 
 const App = () => {
+  const stripePromise = loadStripe(
+    "pk_test_51M6hOpAkLES5P4qQRx2fORUAAi49KDKe4ONatn8bOSK3J9nOyDPUsLmTfumYNt4YSHC3P80HEfpmt5vbezszrTXG00ii2eiDQx"
+  );
   return (
     <div className={`bg-background grid gap-y-16 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -45,6 +52,11 @@ const App = () => {
 
       <LazyShow>
         <Pricing />
+      </LazyShow>
+      <LazyShow>
+        <Elements stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
       </LazyShow>
       <LazyShow>
         <>

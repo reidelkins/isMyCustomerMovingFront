@@ -1,150 +1,138 @@
-import React from "react";
+import React, { useState, useEffect, FC } from "react";
+import Script from "next/script";
 
-import config from "../config/index.json";
-
-const Pricing = () => {
-  const { pricing } = config;
-  const { title, subtitle } = pricing;
-  // const [firstPlan, secondPlan, thirdPlan] = items;
-
-  return (
-    <section className={`bg-background py-8`} id="pricing">
-      <div className={`container mx-auto px-2 pt-4 pb-12 text-primary `}>
-        <h1
-          className={`w-full my-2 text-5xl font-bold leading-tight text-center text-primary`}
-        >
-          {title}
-        </h1>
-        <p className="mt-4 max-w-2xl text-2xl text-gray-900 lg:mx-auto text-center">
-          {subtitle}
-        </p>
-        <div className="flex flex-row justify-center items-center">
-          <iframe
-            src="https://letsmeet.io/jonathanbrewster/ismycustomermoving-demo"
-            // style="border:none; min-height: 700px; width: 1px; min-width: 100%; *width: 100%;"
-            style={{
-              border: "none",
-              minHeight: "700px",
-              // width: "1px",
-              minWidth: "100%",
-              width: "100%",
-            }}
-            name="booking"
-            scrolling="no"
-            frameBorder="0"
-            width="100%"
-            height="100%"
-            referrerPolicy="unsafe-url"
-            allowFullScreen
-          ></iframe>
-        </div>
-
-        {/* <div className={`w-full mb-4`}>
-          <div
-            className={`h-1 mx-auto bg-primary w-64 opacity-25 my-0 py-0 rounded-t`}
-          ></div>
-        </div>
-        <div
-          className={`flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4`}
-        >
-          <div
-            className={`flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-background mt-4`}
-          >
-            <div
-              className={`flex-1 bg-background text-gray-600 rounded-t rounded-b-none overflow-hidden shadow`}
-            >
-              <div className={`p-8 text-3xl font-bold text-center border-b-4`}>
-                {firstPlan?.name}
-              </div>
-              <ul className={`w-full text-center text-sm`}>
-                {firstPlan?.features.map((feature) => (
-                  <li
-                    className={`border-b py-4`}
-                    key={`${firstPlan.name}-${feature}`}
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div
-              className={`flex-none mt-auto bg-background rounded-b rounded-t-none overflow-hidden shadow p-6`}
-            >
-              <div
-                className={`w-full pt-6 text-3xl text-gray-600 font-bold text-center`}
-              >
-                {firstPlan?.price}
-                <span className={`text-base`}> {firstPlan?.priceDetails}</span>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-background mt-4 sm:-mt-6 shadow-lg z-10`}
-          >
-            <div
-              className={`flex-1 bg-background rounded-t rounded-b-none overflow-hidden shadow`}
-            >
-              <div className={`w-full p-8 text-3xl font-bold text-center`}>
-                {secondPlan?.name}
-              </div>
-              <div
-                className={`h-1 w-full bg-primary my-0 py-0 rounded-t`}
-              ></div>
-              <ul className={`w-full text-center text-base font-bold`}>
-                {secondPlan?.features.map((feature) => (
-                  <li
-                    className={`border-b py-4`}
-                    key={`${secondPlan?.name}-${feature}`}
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div
-              className={`flex-none mt-auto bg-background rounded-b rounded-t-none overflow-hidden shadow p-6`}
-            >
-              <div className={`w-full pt-6 text-4xl font-bold text-center`}>
-                {secondPlan?.price}
-                <span className={`text-base`}> {secondPlan?.priceDetails}</span>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-primary mt-4`}
-          >
-            <div
-              className={`flex-1 bg-background text-gray-600 rounded-t rounded-b-none overflow-hidden shadow`}
-            >
-              <div className={`p-8 text-3xl font-bold text-center border-b-4`}>
-                {thirdPlan?.name}
-              </div>
-              <ul className={`w-full text-center text-sm`}>
-                {thirdPlan?.features.map((feature) => (
-                  <li
-                    className={`border-b py-4`}
-                    key={`${thirdPlan?.name}-${feature}`}
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div
-              className={`flex-none mt-auto bg-background rounded-b rounded-t-none overflow-hidden shadow p-6`}
-            >
-              <div
-                className={`w-full pt-6 text-3xl text-gray-600 font-bold text-center`}
-              >
-                {thirdPlan?.price}
-                <span className={`text-base`}> {thirdPlan?.priceDetails}</span>
-              </div>
-            </div>
-          </div>
-        </div> */}
+const ProductDisplay = () => (
+  <section>
+    <div className="product">
+      <Logo />
+      <div className="description">
+        <h3>Starter plan</h3>
+        <h5>$20.00 / month</h5>
       </div>
+    </div>
+    <form action="/create-checkout-session" method="POST">
+      {/* Add a hidden field with the lookup_key of your Price */}
+      <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
+      <button id="checkout-and-portal-button" type="submit">
+        Checkout
+      </button>
+    </form>
+  </section>
+);
+
+type SuccessDisplayProps = {
+  sessionId: string;
+};
+
+const SuccessDisplay = ({ sessionId }: SuccessDisplayProps) => {
+  return (
+    <section>
+      <div className="product Box-root">
+        <Logo />
+        <div className="description Box-root">
+          <h3>Subscription to starter plan successful!</h3>
+        </div>
+      </div>
+      <form action="/create-portal-session" method="POST">
+        <input
+          type="hidden"
+          id="session-id"
+          name="session_id"
+          value={sessionId}
+        />
+        <button id="checkout-and-portal-button" type="submit">
+          Manage your billing information
+        </button>
+      </form>
     </section>
   );
 };
 
-export default Pricing;
+type MessageProps = {
+  message: string;
+};
+
+const Message = ({ message }: MessageProps) => (
+  <section>
+    <p>{message}</p>
+  </section>
+);
+
+export const NextStripePricingTable: FC<{
+  pricingTableId?: string;
+  publishableKey?: string;
+  clientReferenceId?: string;
+}> = ({ pricingTableId, publishableKey, clientReferenceId }) => {
+  if (!pricingTableId || !publishableKey) return null;
+  return (
+    <>
+      <Script
+        async
+        strategy="lazyOnload"
+        src="https://js.stripe.com/v3/pricing-table.js"
+      />
+      <stripe-pricing-table
+        pricing-table-id={pricingTableId}
+        publishable-key={publishableKey}
+        client-reference-id={clientReferenceId}
+      />
+    </>
+  );
+};
+
+export default function App() {
+  let [message, setMessage] = useState("");
+  let [success, setSuccess] = useState(false);
+  let [sessionId, setSessionId] = useState("");
+
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+
+    if (query.get("success")) {
+      setSuccess(true);
+      setSessionId(query.get("session_id")!);
+    }
+
+    if (query.get("canceled")) {
+      setSuccess(false);
+      setMessage(
+        "Order canceled -- continue to shop around and checkout when you're ready."
+      );
+    }
+  }, [sessionId]);
+
+  // if (!success && message === "") {
+  //   return <ProductDisplay />;
+  // } else if (success && sessionId !== "") {
+  //   return <SuccessDisplay sessionId={sessionId} />;
+  // } else {
+  //   return <Message message={message} />;
+  // }
+  return <NextStripePricingTable />;
+}
+
+const Logo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    width="14px"
+    height="16px"
+    viewBox="0 0 14 16"
+    version="1.1"
+  >
+    <defs />
+    <g id="Flow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+      <g
+        id="0-Default"
+        transform="translate(-121.000000, -40.000000)"
+        fill="#E184DF"
+      >
+        <path
+          d="M127,50 L126,50 C123.238576,50 121,47.7614237 121,45 C121,42.2385763 123.238576,40 126,40 L135,40 L135,56 L133,56 L133,42 L129,42 L129,56 L127,56 L127,50 Z M127,48 L127,42 L126,42 C124.343146,42 123,43.3431458 123,45 C123,46.6568542 124.343146,48 126,48 L127,48 Z"
+          id="Pilcrow"
+        />
+      </g>
+    </g>
+  </svg>
+);
