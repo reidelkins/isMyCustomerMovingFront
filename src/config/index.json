@@ -33,11 +33,10 @@
       "hrefElse": "/#features"
     },
     {
-      "name": "About Us",
-      "hrefHome": "team",
-      "hrefElse": "/#team"
+      "name": "Contact Us",
+      "hrefHome": "contact",
+      "hrefElse": "/#contact"
     },
-
     {
       "name": "Pricing",
       "hrefHome": "pricing",
@@ -109,9 +108,16 @@
     "subtitle": "Schedule a Demo, Ask a Question, or Get a Quote Today!",
     "items": [
       {
-        "name": "Testing",
-        "price": "$0",
-        "priceDetails": "",
+        "tier": "SB",
+        "name": "Small Business",
+        "prices": {
+          "month": "$150",
+          "year": "$1,650"
+        },
+        "description": "For businesses with less than 5000 customers",
+        "callToAction": {
+          "text": "Subscribe to Small Business"
+        },
         "features": [
           "Backtest For Three Month",
           "Send In Your List",
@@ -120,10 +126,16 @@
         ]
       },
       {
-        "name": "Pro",
-        "price": "$500",
-        "priceDetails": "Per Month",
-
+        "tier": "FR",
+        "name": "Franchise",
+        "prices": {
+          "month": "$250",
+          "year": "$2,750"
+        },
+        "description": "For businesses with less than 10000 customers",
+        "callToAction": {
+          "text": "Subscribe to Small Business"
+        },
         "features": [
           "3 accounts",
           "Up to 10,000 customers",
@@ -133,9 +145,34 @@
         ]
       },
       {
+        "tier": "LB",
+        "name": "Large Business",
+        "prices": {
+          "month": "$400",
+          "year": "$4,400"
+        },
+        "description": "For businesses with less than 20000 customers",
+        "callToAction": {
+          "text": "Subscribe to Small Business"
+        },
+        "features": [
+          "10 accounts",
+          "Up to 50,000 customers",
+          "Backtest for 1 year",
+          "Daily Email List",
+          "$20 per additional 1000 customers"
+        ]
+      },
+      {
         "name": "Enterprise",
-        "price": "$1000",
-        "priceDetails": "Per Month",
+        "prices": {
+          "month": "Contact Us",
+          "year": "Contact Us"
+        },
+        "description": "For businesses with over 20000 customers",
+        "callToAction": {
+          "text": "Setup a Demo"
+        },
         "features": [
           "10 accounts",
           "Up to 50,000 customers",
