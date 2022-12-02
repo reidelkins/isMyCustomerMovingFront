@@ -23,7 +23,7 @@ export default function CheckoutPage() {
     <div>
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <Checkout clientSecret={clientSecret} />
+          <Checkout />
         </Elements>
       )}
     </div>

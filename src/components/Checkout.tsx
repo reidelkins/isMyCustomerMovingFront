@@ -22,11 +22,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
   padding: theme.spacing(12, 0),
 }));
 
-interface Props {
-  clientSecret: string;
-}
-
-export default function Checkout({ clientSecret }: Props) {
+export default function Checkout() {
   // Handle real-time validation errors from the CardElement.
 
   return (
@@ -40,7 +36,7 @@ export default function Checkout({ clientSecret }: Props) {
 
         <Container maxWidth="sm">
           <ContentStyle>
-            <CheckoutForm clientSecret={clientSecret} />
+            <CheckoutForm />
           </ContentStyle>
         </Container>
       </RootStyle>
