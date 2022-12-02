@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   PaymentElement,
   useElements,
@@ -7,13 +7,8 @@ import {
 //api
 import ApiService from "../pages/api/checkout";
 //mui
-import { Stack, TextField } from "@mui/material";
 
-interface Props {
-  clientSecret: string;
-}
-
-export default function CheckoutForm({ clientSecret }: Props) {
+export default function CheckoutForm() {
   const [error, setError] = useState(null);
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -24,13 +19,13 @@ export default function CheckoutForm({ clientSecret }: Props) {
   // Pass the appearance object to the Elements instance
   //   const elements = stripe!.elements({ clientSecret, appearance });
 
-  const handleChange = (event: any) => {
-    if (event.error) {
-      setError(event.error.message);
-    } else {
-      setError(null);
-    }
-  };
+  //   const handleChange = (event: any) => {
+  //     if (event.error) {
+  //       setError(event.error.message);
+  //     } else {
+  //       setError(null);
+  //     }
+  //   };
   // Handle form submission.
   const handleSubmit = async (event: any) => {
     event.preventDefault();
