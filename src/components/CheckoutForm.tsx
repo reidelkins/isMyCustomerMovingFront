@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 import {
   PaymentElement,
@@ -18,6 +19,8 @@ export default function CheckoutForm() {
   const [isProcessing, setIsProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const router = useRouter();
+  const { timeFrame, tier } = router.query;
 
   // Pass the appearance object to the Elements instance
   //   const elements = stripe!.elements({ clientSecret, appearance });
@@ -36,57 +39,29 @@ export default function CheckoutForm() {
       return;
     }
     setIsProcessing(true);
-    ApiService.saveStripeInfo({
-      email,
-    })
-      .then((response) => {
-        console.log("this is a response");
-        console.log(response.data);
-        // stripe.retrievePaymentIntent(response.data).then(({ paymentIntent }) => {
-        //   const message = document.querySelector("#message");
-
-        //   // Inspect the PaymentIntent `status` to indicate the status of the payment
-        //   // to your customer.
-        //   //
-        //   // Some payment methods will [immediately succeed or fail][0] upon
-        //   // confirmation, while others will first enter a `processing` state.
-        //   //
-        //   // [0]: https://stripe.com/docs/payments/payment-methods#payment-notification
-        //   switch (paymentIntent!.status) {
-        //     case "succeeded":
-        //       console.log("succeeded");
-        //       break;
-
-        //     case "processing":
-        //       console.log("processing");
-        //       break;
-
-        //     case "requires_payment_method":
-        //       console.log("requires_payment_method");
-        //       // Redirect your user back to your payment page to attempt collecting
-        //       // payment again
-        //       break;
-
-        //     default:
-        //       console.log("default");
-        //       break;
-        //   }
-        // });
+    stripe
+      .confirmSetup({
+        elements,
+        confirmParams: {
+          return_url: "http://localhost:3006/paymentStatus",
+        },
+        redirect: "if_required",
       })
-      //   .then(async (response) => {
-      //     console.log("this is a response");
-      //     const { error } = await stripe.confirmSetup({
-      //       //`Elements` instance that was used to create the Payment Element
-      //       elements,
-      //       confirmParams: {
-      //         return_url: "https://localhost:3006/paymentStatus",
-      //       },
-      //       redirect: "if_required",
-      //     });
-      //     if (error) {
-      //       console.log("[error]", error);
-      //     }
-      //   })
+      .then((result) => {
+        ApiService.saveStripeInfo({
+          email,
+          company,
+          tier,
+          timeFrame,
+          payment_method_id: result.setupIntent!.payment_method,
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
 
       .catch((errorHere) => {
         console.log(errorHere);
