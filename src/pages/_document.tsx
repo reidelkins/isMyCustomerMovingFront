@@ -7,12 +7,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head>
-          <script
-            async
-            src="https://js.stripe.com/v3/pricing-table.js"
-          ></script>
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

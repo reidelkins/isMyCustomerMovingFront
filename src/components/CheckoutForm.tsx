@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Yup from "yup";
-import { useFormik, Form, FormikProvider } from "formik";
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import {
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 //api
 import ApiService from "../pages/api/checkout";
 //mui
 import { Stack, TextField } from "@mui/material";
 
-export default function CheckoutForm() {
+interface Props {
+  clientSecret: string;
+}
+
+export default function CheckoutForm({ clientSecret }: Props) {
   const [error, setError] = useState(null);
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -26,33 +33,68 @@ export default function CheckoutForm() {
   };
   // Handle form submission.
   const handleSubmit = async (event: any) => {
-    console.log("final submit");
     event.preventDefault();
-    const card = elements!.getElement(CardElement);
-
-    // add these lines
-    if (card) {
-      const { error, paymentMethod } = await stripe!.createPaymentMethod({
-        type: "card",
-        card,
-      });
-      ApiService.saveStripeInfo({
-        email,
-        payment_method_id: paymentMethod!.id,
-      })
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-      if (error) {
-        console.log("[error]", error);
-      } else {
-        console.log("[PaymentMethod]", paymentMethod);
-      }
+    if (!stripe || !elements) {
+      return;
     }
+    setIsProcessing(true);
+    ApiService.saveStripeInfo({
+      email,
+    })
+      .then((response) => {
+        console.log("this is a response");
+        console.log(response.data);
+        // stripe.retrievePaymentIntent(response.data).then(({ paymentIntent }) => {
+        //   const message = document.querySelector("#message");
+
+        //   // Inspect the PaymentIntent `status` to indicate the status of the payment
+        //   // to your customer.
+        //   //
+        //   // Some payment methods will [immediately succeed or fail][0] upon
+        //   // confirmation, while others will first enter a `processing` state.
+        //   //
+        //   // [0]: https://stripe.com/docs/payments/payment-methods#payment-notification
+        //   switch (paymentIntent!.status) {
+        //     case "succeeded":
+        //       console.log("succeeded");
+        //       break;
+
+        //     case "processing":
+        //       console.log("processing");
+        //       break;
+
+        //     case "requires_payment_method":
+        //       console.log("requires_payment_method");
+        //       // Redirect your user back to your payment page to attempt collecting
+        //       // payment again
+        //       break;
+
+        //     default:
+        //       console.log("default");
+        //       break;
+        //   }
+        // });
+      })
+      //   .then(async (response) => {
+      //     console.log("this is a response");
+      //     const { error } = await stripe.confirmSetup({
+      //       //`Elements` instance that was used to create the Payment Element
+      //       elements,
+      //       confirmParams: {
+      //         return_url: "https://localhost:3006/paymentStatus",
+      //       },
+      //       redirect: "if_required",
+      //     });
+      //     if (error) {
+      //       console.log("[error]", error);
+      //     }
+      //   })
+
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setIsProcessing(false);
   };
 
   return (
@@ -109,16 +151,19 @@ export default function CheckoutForm() {
             >
               Credit or debit card
             </label>
-            <CardElement id="card-element" onChange={handleChange} />
+            <PaymentElement />
             <div className="card-errors" role="alert">
               {error}
             </div>
           </div>
           <button
+            disabled={isProcessing}
             type="submit"
             className="submit-btn mt-4 w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-background bg-primary hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10"
           >
-            Submit Payment
+            <span id="button-text">
+              {isProcessing ? "Processing ..." : "Submit Payment"}
+            </span>
           </button>
         </form>
       </div>
