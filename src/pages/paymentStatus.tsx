@@ -1,6 +1,6 @@
 // PaymentStatus.jsx
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useStripe } from "@stripe/react-stripe-js";
 
 const PaymentStatus = () => {
@@ -43,6 +43,12 @@ const PaymentStatus = () => {
           // payment again
           setMessage(
             "Failed to process payment details. Please try another payment method."
+          );
+          break;
+
+        default:
+          setMessage(
+            "Something went wrong. Please try again or contact support."
           );
           break;
       }

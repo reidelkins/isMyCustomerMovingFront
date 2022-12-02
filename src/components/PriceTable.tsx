@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import config from "../config/index.json";
 
@@ -8,10 +8,8 @@ type PriceTableProps = {
 };
 
 const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
-  let checkoutLink =
-    plan?.name !== "Enterprise"
-      ? "/checkout/" + timeSpan + "/" + plan?.name
-      : "/#contact";
+  const planLink = `/checkout/${timeSpan}/${plan?.name}`;
+  const checkoutLink = plan?.name !== "Enterprise" ? planLink : "/#contact";
   return (
     <div className="w-full md:w-1/2 lg:w-1/4 px-4">
       <div
@@ -375,9 +373,9 @@ export default function PriceTable() {
   const selectedClass = `w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-background bg-primary hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10`;
   const unselectedClass = `w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-background hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10`;
 
-  const handleTimeSpan = (timeSpan: string) => {
-    setTimeSpan(timeSpan);
-    console.log(timeSpan);
+  const handleTimeSpan = (tS: string) => {
+    setTimeSpan(tS);
+    console.log(tS);
   };
 
   return (

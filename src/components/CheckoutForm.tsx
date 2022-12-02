@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+
 import {
   PaymentElement,
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-//api
+
+// api
 import ApiService from "../pages/api/checkout";
-//mui
+// mui
 
 export default function CheckoutForm() {
   //   const [error, setError] = useState(null);
@@ -86,8 +88,8 @@ export default function CheckoutForm() {
       //     }
       //   })
 
-      .catch((error) => {
-        console.log(error);
+      .catch((errorHere) => {
+        console.log(errorHere);
       });
 
     setIsProcessing(false);

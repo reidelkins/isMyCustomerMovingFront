@@ -2,9 +2,9 @@ import React from "react";
 
 type Props = {
   plan: any;
-}
+};
 
-const PriceCard = ({plan}: Props) => {
+const PriceCard = ({ plan }: Props) => {
   return (
     <div
       className={`flex-1 bg-background text-gray-600 rounded-t rounded-b-none overflow-hidden shadow`}
@@ -19,10 +19,8 @@ const PriceCard = ({plan}: Props) => {
           </li>
         ))}
       </ul>
-  </div>
+    </div>
   );
 };
 
 export default PriceCard;
-
-

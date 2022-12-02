@@ -1,8 +1,8 @@
 import React from "react";
 
-//mui
-import { styled } from "@mui/material/styles";
+// mui
 import { Container, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 import CheckoutForm from "./CheckoutForm";
 
@@ -42,38 +42,4 @@ export default function Checkout() {
       </RootStyle>
     </section>
   );
-}
-
-{
-  /* <div className="bg-background grid gap-y-16 overflow-hidden">
-       <Header parent="checkout" />
-       <form onSubmit={handleSubmit} className="stripe-form">
-        <div className="form-row">
-          <label htmlFor="email">Email Address</label>
-          <input
-            className="form-input"
-            id="email"
-            name="name"
-            type="email"
-            placeholder="jenny.rosen@example.com"
-            required
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-        </div>
-        <div className="form-row">
-          <label htmlFor="card-element">Credit or debit card</label>
-          <CardElement id="card-element" onChange={handleChange} />
-          <div className="card-errors" role="alert">
-            {error}
-          </div>
-        </div>
-        <button type="submit" className="submit-btn">
-          Submit Payment
-        </button>
-       </form>
-       <About />
-     </div> */
 }
