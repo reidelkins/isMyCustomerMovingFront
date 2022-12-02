@@ -9,7 +9,8 @@ import ApiService from "../pages/api/checkout";
 //mui
 
 export default function CheckoutForm() {
-  const [error, setError] = useState(null);
+  //   const [error, setError] = useState(null);
+  const error = null;
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
