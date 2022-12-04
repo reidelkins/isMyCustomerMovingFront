@@ -79,6 +79,7 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
             </Typography>
           </BlinkedBox>
         )}
+
         <p
           className="
               text-base text-body-color
@@ -89,12 +90,6 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
         >
           {plan?.description}
         </p>
-        {/* <div className="mb-7">
-          <p className="text-base text-body-color leading-loose mb-1">
-            Unlimited Users
-          </p>
-        </div> */}
-
         <a
           href={checkoutLink}
           className="
@@ -134,8 +129,8 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
                   y2="172"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#3056D3" stop-opacity="0.09" />
-                  <stop offset="1" stop-color="#C4C4C4" stop-opacity="0" />
+                  <stop stopColor="#3056D3" stopOpacity="0.09" />
+                  <stop offset="1" stopColor="#C4C4C4" stopOpacity="0" />
                 </linearGradient>
               </defs>
             </svg>
@@ -399,9 +394,6 @@ export default function PriceTable() {
             <div className="flex flex-wrap -mx-4">
               <div className="w-full px-4">
                 <div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
-                  {/* <span className="font-semibold text-lg text-primary mb-2 block">
-                    Pricing Table
-                  </span> */}
                   <h2
                     className="
                   font-bold
@@ -414,11 +406,6 @@ export default function PriceTable() {
                   >
                     Our Pricing Options
                   </h2>
-                  {/* <p className="text-base text-body-color">
-                    There are many variations of passages of Lorem Ipsum
-                    available but the majority have suffered alteration in some
-                    form.
-                  </p> */}
                 </div>
                 <div className="flex justify-center items-center mb-8">
                   {timeSpan === "Month" ? (
@@ -457,7 +444,7 @@ export default function PriceTable() {
             </div>
             <div className="flex flex-wrap justify-center -mx-4">
               {items?.map((plan: any) => (
-                <PriceCard key={plan.id} plan={plan} timeSpan={timeSpan} />
+                <PriceCard key={plan.tier} plan={plan} timeSpan={timeSpan} />
               ))}
             </div>
           </div>
