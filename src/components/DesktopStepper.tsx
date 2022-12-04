@@ -1,4 +1,5 @@
 import React from "react";
+
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import FeedbackIcon from "@mui/icons-material/Feedback";
@@ -21,6 +22,7 @@ type Props = {
   activeStep: number;
   handleNext: () => void;
   handleBack: () => void;
+  handleClick: (step: number) => void;
   isStepSkipped: (step: number) => boolean;
 };
 
@@ -29,6 +31,7 @@ const DesktopStep: React.FC<Props> = ({
   activeStep,
   handleBack,
   handleNext,
+  handleClick,
   isStepSkipped,
 }) => {
   const isStepOptional = (step: number) => {
@@ -86,7 +89,7 @@ const DesktopStep: React.FC<Props> = ({
     >
       <Stack direction="column">
         <Stepper activeStep={activeStep}>
-          {steps.map((step: any) => {
+          {steps.map((step: any, index: number) => {
             const stepProps: { completed?: boolean } = {};
             const labelProps: {
               optional?: React.ReactNode;
@@ -101,7 +104,10 @@ const DesktopStep: React.FC<Props> = ({
             }
             return (
               <Step key={step.title} {...stepProps}>
-                <StepLabel StepIconComponent={ColorlibStepIcon}>
+                <StepLabel
+                  StepIconComponent={ColorlibStepIcon}
+                  onClick={() => handleClick(index)}
+                >
                   {step.title}
                 </StepLabel>
               </Step>
@@ -110,7 +116,7 @@ const DesktopStep: React.FC<Props> = ({
         </Stepper>
         <React.Fragment>
           <Box
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 shadow-2xl border border-black rounded "
             sx={{
               width: "100%",
               height: "100%",

@@ -1,8 +1,9 @@
+import React from "react";
+
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { Button, MobileStepper, Box, Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import React from "react";
 
 type Props = {
   steps: any;
