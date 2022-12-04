@@ -72,7 +72,7 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
         {plan?.name !== "Enterprise" && (
           <BlinkedBox className="absolute top-1 left-3 w-auto">
             <Typography
-              className="font-bold text-sm"
+              className="font-bold text-sm w-auto"
               style={{ animation: `${blink} 1s linear infinite` }}
             >
               7 Day Free Trial!
