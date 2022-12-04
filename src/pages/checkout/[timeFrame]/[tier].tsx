@@ -32,7 +32,7 @@ export default function CheckoutPage() {
   const [stripePromise, setStripePromise] = useState<any>(null);
   const [clientSecret, setClientSecret] = useState("");
   const smDown = useResponsive("down", "sm");
-  const mdUp = useResponsive("up", "md");
+  // const mdUp = useResponsive("up", "md");
   const router = useRouter();
   const [timeFrame, setTimeFrame] = useState<string | string[] | undefined>("");
   const [tier, setTier] = useState<string | string[] | undefined>("");

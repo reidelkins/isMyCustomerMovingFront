@@ -29,6 +29,13 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
 
   useEffect(() => {}, [cardError]);
 
+  const handlePhoneError = () => {
+    const err = isPossiblePhoneNumber(phone)
+      ? undefined
+      : "Invalid phone number";
+    return phone ? err : "Phone number is required";
+  };
+
   // Handle form submission.
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -61,9 +68,7 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
           });
       })
       .catch((err) => {
-        console.log("setup error, ", err);
-        setCardError("Error: " + err.message);
-        console.log(cardError);
+        setCardError(`Error: ${err.message}`);
       });
 
     setIsProcessing(false);
@@ -136,13 +141,7 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
               onChange={(event) => {
                 setPhone(event as string);
               }}
-              error={
-                phone
-                  ? isPossiblePhoneNumber(phone)
-                    ? undefined
-                    : "Invalid phone number"
-                  : "Phone number required"
-              }
+              error={handlePhoneError()}
             />
           </div>
           <div className="form-row">

@@ -1,6 +1,6 @@
 // components
-import Header from "../components/Header";
 import About from "../components/About";
+import Header from "../components/Header";
 
 export default function Success() {
   return (
@@ -13,8 +13,8 @@ export default function Success() {
           🎉 Woohoo! 🎉
         </h1>
         <p className="mt-4 max-w-2xl text-2xl text-gray-900 lg:mx-auto text-center">
-          You've successfully subscribed! You should have received an email from
-          jb@ismycustomermoving.com to complete the sign up process.
+          You have successfully subscribed! You should have received an email
+          from jb@ismycustomermoving.com to complete the sign up process.
         </p>
         <br />
         <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
