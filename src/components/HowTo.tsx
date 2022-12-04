@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 
 import config from "../config/index.json";
-import MobileStep from "./MobileStepper";
 import DesktopStep from "./DesktopStepper";
+import MobileStep from "./MobileStepper";
 
 const HowTo = () => {
   const { howto } = config;
@@ -31,6 +31,10 @@ const HowTo = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const handleClick = (step: number) => {
+    setActiveStep(step);
+  };
+
   return (
     <section className={`bg-background py-8`} id="How To">
       <div className={`container mx-auto px-2 pt-4 pb-12 text-primary `}>
@@ -55,6 +59,7 @@ const HowTo = () => {
           activeStep={activeStep}
           handleNext={handleNext}
           handleBack={handleBack}
+          handleClick={handleClick}
           isStepSkipped={isStepSkipped}
         />
       </BrowserView>

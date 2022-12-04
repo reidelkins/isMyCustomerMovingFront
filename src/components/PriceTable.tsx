@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+import { Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { keyframes } from "@mui/system";
+
 import config from "../config/index.json";
 
 type PriceTableProps = {
@@ -7,11 +11,23 @@ type PriceTableProps = {
   timeSpan: string;
 };
 
+const blink = keyframes`
+    from { opacity: 0; }
+    to { opacity: 1; }
+  `;
+
+const BlinkedBox = styled("div")({
+  width: 30,
+  height: 30,
+  animation: `${blink} 1s ease-out infinite`,
+});
+
 const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
   const planLink = `/checkout/${timeSpan}/${plan?.name}`;
   const checkoutLink = plan?.name !== "Enterprise" ? planLink : "/#contact";
+
   return (
-    <div className="w-full md:w-1/2 lg:w-1/4 px-4">
+    <div className="w-full md:w-1/2 lg:w-1/4 px-3 ">
       <div
         className="
             bg-white
@@ -28,29 +44,40 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
             xl:p-12
             mb-10
             shadow-xl
+            max-h-96
             "
       >
         <span className="text-primary font-semibold text-lg block mb-4">
           {plan?.name}
         </span>
-        {timeSpan === "Monthly" ? (
+        {timeSpan === "Month" ? (
           <h2 className="font-bold text-dark mb-5 text-[42px]">
-            {plan?.prices?.month}
+            {plan?.prices?.Month}
             {plan?.name !== "Enterprise" && (
-              <span className="text-base text-body-color font-medium">
-                / {timeSpan}
+              <span className="text-base text-body-color font-large">
+                {timeSpan}
               </span>
             )}
           </h2>
         ) : (
           <h2 className="font-bold text-dark mb-5 text-[42px]">
-            {plan?.prices?.year}
+            {plan?.prices?.Annual}
             {plan?.name !== "Enterprise" && (
               <span className="text-base text-body-color font-medium">
-                / {timeSpan}
+                {timeSpan}
               </span>
             )}
           </h2>
+        )}
+        {plan?.name !== "Enterprise" && (
+          <BlinkedBox className="absolute top-1 left-3 w-auto">
+            <Typography
+              className="font-bold text-sm"
+              style={{ animation: `${blink} 1s linear infinite` }}
+            >
+              7 Day Free Trial!
+            </Typography>
+          </BlinkedBox>
         )}
         <p
           className="
@@ -66,22 +93,8 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
           <p className="text-base text-body-color leading-loose mb-1">
             Unlimited Users
           </p>
-          <p className="text-base text-body-color leading-loose mb-1">
-            All UI components
-          </p>
-          <p className="text-base text-body-color leading-loose mb-1">
-            Lifetime access
-          </p>
-          <p className="text-base text-body-color leading-loose mb-1">
-            Free updates
-          </p>
-          <p className="text-base text-body-color leading-loose mb-1">
-            Use on Unlimited project
-          </p>
-          <p className="text-base text-body-color leading-loose mb-1">
-            12 Months support
-          </p>
         </div> */}
+
         <a
           href={checkoutLink}
           className="
@@ -101,6 +114,7 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
         >
           {plan?.callToAction?.text}
         </a>
+
         <div>
           <span className="absolute right-0 top-7 z-[-1]">
             <svg
@@ -369,13 +383,12 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
 export default function PriceTable() {
   const { pricing } = config;
   const { items } = pricing;
-  const [timeSpan, setTimeSpan] = useState("Monthly");
+  const [timeSpan, setTimeSpan] = useState("Month");
   const selectedClass = `w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-background bg-primary hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10`;
   const unselectedClass = `w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-background hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10`;
 
   const handleTimeSpan = (tS: string) => {
     setTimeSpan(tS);
-    console.log(tS);
   };
 
   return (
@@ -408,17 +421,17 @@ export default function PriceTable() {
                   </p> */}
                 </div>
                 <div className="flex justify-center items-center mb-8">
-                  {timeSpan === "Monthly" ? (
+                  {timeSpan === "Month" ? (
                     <div className="flex items-center">
                       <button
                         className="rounded-md shadow m-2"
-                        onClick={() => handleTimeSpan("Monthly")}
+                        onClick={() => handleTimeSpan("Month")}
                       >
                         <p className={selectedClass}>Monthly</p>
                       </button>
                       <button
                         className="rounded-md shadow m-2"
-                        onClick={() => handleTimeSpan("Annually")}
+                        onClick={() => handleTimeSpan("Annual")}
                       >
                         <p className={unselectedClass}>Annually</p>
                       </button>
@@ -427,13 +440,13 @@ export default function PriceTable() {
                     <div className="flex items-center">
                       <button
                         className="rounded-md shadow m-2"
-                        onClick={() => handleTimeSpan("Monthly")}
+                        onClick={() => handleTimeSpan("Month")}
                       >
                         <p className={unselectedClass}>Monthly</p>
                       </button>
                       <button
                         className="rounded-md shadow m-2"
-                        onClick={() => handleTimeSpan("Annually")}
+                        onClick={() => handleTimeSpan("Annual")}
                       >
                         <p className={selectedClass}>Annually</p>
                       </button>

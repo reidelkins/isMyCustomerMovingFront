@@ -10,7 +10,7 @@
       },
       {
         "name": "JB Brewster",
-        "headshot": "/assets/team/jonathon.png",
+        "headshot": "/assets/team/jonathon.jpg",
         "title": "Customer Acquistion, Founder",
         "about": ""
       },
@@ -111,8 +111,8 @@
         "tier": "SB",
         "name": "Small Business",
         "prices": {
-          "month": "$150",
-          "year": "$1,650"
+          "Month": "$150",
+          "Annual": "$1,650"
         },
         "description": "For businesses with less than 5000 customers",
         "callToAction": {
@@ -129,12 +129,12 @@
         "tier": "FR",
         "name": "Franchise",
         "prices": {
-          "month": "$250",
-          "year": "$2,750"
+          "Month": "$250",
+          "Annual": "$2,750"
         },
         "description": "For businesses with less than 10000 customers",
         "callToAction": {
-          "text": "Subscribe to Small Business"
+          "text": "Subscribe to Franchise"
         },
         "features": [
           "3 accounts",
@@ -148,12 +148,12 @@
         "tier": "LB",
         "name": "Large Business",
         "prices": {
-          "month": "$400",
-          "year": "$4,400"
+          "Month": "$400",
+          "Annual": "$4,400"
         },
         "description": "For businesses with less than 20000 customers",
         "callToAction": {
-          "text": "Subscribe to Small Business"
+          "text": "Subscribe to Large Business"
         },
         "features": [
           "10 accounts",
@@ -166,12 +166,12 @@
       {
         "name": "Enterprise",
         "prices": {
-          "month": "Contact Us",
-          "year": "Contact Us"
+          "Month": "Custom",
+          "Annual": "Custom"
         },
         "description": "For businesses with over 20000 customers",
         "callToAction": {
-          "text": "Setup a Demo"
+          "text": "Contact Us to Learn More"
         },
         "features": [
           "10 accounts",

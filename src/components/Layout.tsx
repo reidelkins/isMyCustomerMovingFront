@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+
 import Head from "next/head";
 import Link from "next/link";
 
@@ -32,7 +33,7 @@ const Layout = ({
       <header>
         <div className="header-content">
           <Link href="/" className="logo">
-            <img src="/logo.png" />
+            <img src="/logo.png" alt="logo" />
           </Link>
           <h1>
             <span className="light">Stripe Sample</span>

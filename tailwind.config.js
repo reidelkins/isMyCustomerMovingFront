@@ -1,3 +1,4 @@
+
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -18,10 +19,12 @@ module.exports = {
     extend: {
       colors: {
         primary: '#8ce8c5',
-        secondary: '#344463',
-        tertiary: '#99a0a3',
+        secondary: '#86debc',
+        tertiary: '#cbf4c9',
+        quaternary: '#3c8565',
         border: '#1a2e35',
         background: '#ffffff',
+        red: '#ff0000',
       },
       animation: {
         vote: 'vote 1s ease-in-out',
@@ -39,6 +42,10 @@ module.exports = {
           },
         },
       },
+    },
+    fontFamily: {
+      'display': ['"Montserrat"', 'sans-serif'],
+      'body': ['"Public Sans"', 'sans-serif'],
     },
   },
   variants: {},

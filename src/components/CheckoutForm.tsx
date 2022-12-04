@@ -1,37 +1,34 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 import {
   PaymentElement,
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import { useRouter } from "next/router";
+import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
 
 // api
 import ApiService from "../pages/api/checkout";
-// mui
 
-export default function CheckoutForm() {
-  //   const [error, setError] = useState(null);
-  const error = null;
+interface Props {
+  timeFrame: string | string[] | undefined;
+  tier: string | string[] | undefined;
+}
+
+export default function CheckoutForm({ timeFrame, tier }: Props) {
+  const router = useRouter();
+  const [cardError, setCardError] = useState("");
+  const [otherError, setOtherError] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
+  const [phone, setPhone] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const router = useRouter();
-  const { timeFrame, tier } = router.query;
 
-  // Pass the appearance object to the Elements instance
-  //   const elements = stripe!.elements({ clientSecret, appearance });
+  useEffect(() => {}, [cardError]);
 
-  //   const handleChange = (event: any) => {
-  //     if (event.error) {
-  //       setError(event.error.message);
-  //     } else {
-  //       setError(null);
-  //     }
-  //   };
   // Handle form submission.
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -51,20 +48,22 @@ export default function CheckoutForm() {
         ApiService.saveStripeInfo({
           email,
           company,
+          phone,
           tier,
           timeFrame,
           payment_method_id: result.setupIntent!.payment_method,
         })
-          .then((res) => {
-            console.log(res);
+          .then(() => {
+            router.push("/success/");
           })
           .catch((err) => {
-            console.log(err);
+            setOtherError(err.data);
           });
       })
-
-      .catch((errorHere) => {
-        console.log(errorHere);
+      .catch((err) => {
+        console.log("setup error, ", err);
+        setCardError("Error: " + err.message);
+        console.log(cardError);
       });
 
     setIsProcessing(false);
@@ -119,6 +118,35 @@ export default function CheckoutForm() {
           </div>
           <div className="form-row">
             <label
+              htmlFor="phone-number"
+              className="block text-gray-700 text-sm font-bold mb-2 mt-4"
+            >
+              Phone Number
+            </label>
+            <PhoneInput
+              className="form-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="phone-number"
+              name="phone-number"
+              defaultCountry="US"
+              countrySelectProps={{ unicodeFlags: true }}
+              placeholder="Enter phone number"
+              required
+              international
+              value={phone}
+              onChange={(event) => {
+                setPhone(event as string);
+              }}
+              error={
+                phone
+                  ? isPossiblePhoneNumber(phone)
+                    ? undefined
+                    : "Invalid phone number"
+                  : "Phone number required"
+              }
+            />
+          </div>
+          <div className="form-row">
+            <label
               className="block text-gray-700 text-sm font-bold mb-2 mt-4"
               htmlFor="card-element"
             >
@@ -126,7 +154,7 @@ export default function CheckoutForm() {
             </label>
             <PaymentElement />
             <div className="card-errors" role="alert">
-              {error}
+              {cardError}
             </div>
           </div>
           <button
@@ -138,6 +166,11 @@ export default function CheckoutForm() {
               {isProcessing ? "Processing ..." : "Submit Payment"}
             </span>
           </button>
+          {otherError && (
+            <div className="text-red-500 text-sm mt-2" role="alert">
+              {otherError}
+            </div>
+          )}
         </form>
       </div>
     </div>
