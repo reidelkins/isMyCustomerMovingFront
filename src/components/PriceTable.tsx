@@ -70,7 +70,7 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
           </h2>
         )}
         {plan?.name !== "Enterprise" && (
-          <BlinkedBox className="absolute top-1 left-3 w-auto">
+          <BlinkedBox className="absolute top-1 left-3 w-full">
             <Typography
               className="font-bold text-sm w-auto"
               style={{ animation: `${blink} 1s linear infinite` }}
