@@ -1,3 +1,6 @@
+import ReactGA from 'react-ga';
+const TRACKING_ID = "G-FTG6L00VSK"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
 declare global {
@@ -31,3 +34,12 @@ export const event = ({
     value,
   });
 };
+
+
+const useAnalyticsEventTracker = (category="Blog category") => {
+  const eventTracker = (action = "test action", label = "test label") => {
+    ReactGA.event({category, action, label});
+  }
+  return eventTracker;
+}
+export default useAnalyticsEventTracker;
