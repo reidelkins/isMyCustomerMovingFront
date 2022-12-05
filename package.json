@@ -24,6 +24,7 @@
     "@mui/system": "^5.10.16",
     "@stripe/react-stripe-js": "^1.15.0",
     "@stripe/stripe-js": "^1.44.1",
+    "@vercel/analytics": "^0.1.5",
     "axios": "^1.2.0",
     "formik": "^2.2.9",
     "framer-motion": "^5.0.0",
