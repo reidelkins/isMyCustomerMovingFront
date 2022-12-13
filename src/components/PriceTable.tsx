@@ -443,8 +443,8 @@ export default function PriceTable() {
               </div>
             </div>
             <div className="flex flex-wrap justify-center -mx-4">
-              {items?.map((plan: any) => (
-                <PriceCard key={plan.tier} plan={plan} timeSpan={timeSpan} />
+              {items?.map((plan: any, index: number) => (
+                <PriceCard key={index} plan={plan} timeSpan={timeSpan} />
               ))}
             </div>
           </div>

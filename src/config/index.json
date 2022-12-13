@@ -112,7 +112,8 @@
         "name": "Small Business",
         "prices": {
           "Month": "$150",
-          "Annual": "$1,650"
+          "Annual": "$1620",
+          "AnnualMonth": "$135"
         },
         "description": "For businesses with less than 5000 customers",
         "callToAction": {
@@ -130,7 +131,8 @@
         "name": "Franchise",
         "prices": {
           "Month": "$250",
-          "Annual": "$2,750"
+          "Annual": "2700",
+          "AnnualMonth": "$225"
         },
         "description": "For businesses with less than 10000 customers",
         "callToAction": {
@@ -149,7 +151,8 @@
         "name": "Large Business",
         "prices": {
           "Month": "$400",
-          "Annual": "$4,400"
+          "Annual": "$4320",
+          "AnnualMonth": "$360"
         },
         "description": "For businesses with less than 20000 customers",
         "callToAction": {

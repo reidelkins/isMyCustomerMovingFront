@@ -63,14 +63,14 @@ const HowTo = () => {
           isStepSkipped={isStepSkipped}
         />
       </BrowserView>
-      <MobileView>
+      {/* <MobileView>
         <MobileStep
           steps={steps}
           handleBack={handleBack}
           handleNext={handleNext}
           activeStep={activeStep}
         />
-      </MobileView>
+      </MobileView> */}
     </section>
   );
 };

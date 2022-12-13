@@ -21,6 +21,7 @@ const MobileStep: React.FC<Props> = ({
   const theme = useTheme();
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+      {/* TODO - error here
       <Paper
         square
         elevation={0}
@@ -33,7 +34,7 @@ const MobileStep: React.FC<Props> = ({
         }}
       >
         <Typography>{steps[activeStep]?.title}</Typography>
-      </Paper>
+      </Paper> */}
       <Box sx={{ height: 255, maxWidth: 400, width: "100%", p: 2 }}>
         {steps[activeStep]?.description}
       </Box>
