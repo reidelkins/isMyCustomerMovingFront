@@ -17,8 +17,6 @@ const blink = keyframes`
   `;
 
 const BlinkedBox = styled("div")({
-  width: 30,
-  height: 30,
   animation: `${blink} 1s ease-out infinite`,
 });
 
@@ -70,9 +68,9 @@ const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
           </h2>
         )}
         {plan?.name !== "Enterprise" && (
-          <BlinkedBox className="absolute top-1 left-3 w-full font-bold text-sm">
+          <BlinkedBox className="absolute top-1 left-3 font-bold text-sm w-screen">
             <Typography
-              className="font-bold text-sm w-auto"
+              className="font-bold text-sm"
               style={{ animation: `${blink} 1s linear infinite` }}
             >
               7 Day Free Trial!
