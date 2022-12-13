@@ -1,9 +1,7 @@
 import * as React from "react";
-import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+
 import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
-import { Divider, Grid } from "@mui/material";
+import { Button, Divider, Grid, Popover, Typography } from "@mui/material";
 
 type Props = {
   price: number;

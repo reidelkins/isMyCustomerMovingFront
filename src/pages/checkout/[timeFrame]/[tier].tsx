@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
-  Typography,
-  Stack,
-  Switch,
-  Divider,
-  Box,
-  Button,
-  Popover,
-  Grid,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
+import { Typography, Stack, Switch, Divider, Grid } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Elements } from "@stripe/react-stripe-js";
