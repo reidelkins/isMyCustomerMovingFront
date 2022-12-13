@@ -47,7 +47,7 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
       .confirmSetup({
         elements,
         confirmParams: {
-          return_url: "http://localhost:3006/paymentStatus",
+          return_url: "/success/",
         },
         redirect: "if_required",
       })
