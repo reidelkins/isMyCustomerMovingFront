@@ -2,7 +2,7 @@
   "name": "react-landing-page-2021",
   "version": "1.0.0",
   "scripts": {
-    "dev": "PORT=3006 next dev",
+    "dev": "PORT=3007 next dev",
     "build": "next build",
     "start": "PORT=3006 next start",
     "build-stats": "cross-env ANALYZE=true npm run build",

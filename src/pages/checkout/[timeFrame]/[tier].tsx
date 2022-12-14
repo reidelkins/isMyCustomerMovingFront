@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Typography, Stack, Switch, Divider, Grid } from "@mui/material";
+import { Stack, Switch, Divider, Grid } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Elements } from "@stripe/react-stripe-js";
@@ -71,7 +71,7 @@ export default function CheckoutPage() {
     <section title="Checkout">
       <div className="sm:flex">
         <div className="w-full md:w-1/2 bg-primary flex justify-center">
-          {!smUp && <CheckoutDetails price={price} />}
+          {!smUp && <CheckoutDetails price={price} timeFrame={timeFrame} />}
           <Stack spacing={3} sx={{ p: 3 }} className="m-auto">
             <Stack
               direction={"row"}
@@ -86,17 +86,17 @@ export default function CheckoutPage() {
               </Link>
             </Stack>
             <div>
-              <Typography className="mt-4 max-w-2xl text-l md:text-xl text-gray-700">
+              <p className="mt-4 max-w-2xl text-l md:text-xl text-gray-700">
                 Subscribe to {tier}
-              </Typography>
+              </p>
               <Stack direction="row" spacing={2}>
-                <Typography className="mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                <p className="mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4xl">
                   {price}.00
-                </Typography>
-                <Typography className="mt-4 max-w-2xl text-l text-gray-700 lg:mx-auto">
+                </p>
+                <p className="mt-4 max-w-2xl text-l text-gray-700 lg:mx-auto">
                   per <br className="text-xl leading-snug" />
                   {timeFrame === "Month" ? "month" : "year"}
-                </Typography>
+                </p>
               </Stack>
             </div>
             <div>
@@ -115,28 +115,48 @@ export default function CheckoutPage() {
                     style={{ display: "flex", flexDirection: "column" }}
                   >
                     <Grid>
-                      <Typography className="text-l md:text-xl lg:text-2xl text-black font-bold ">
+                      <p className="text-l md:text-xl lg:text-2xl text-black font-bold ">
                         {tier}
-                      </Typography>
+                      </p>
                     </Grid>
                     <Grid>
-                      <Typography className="mt-4 max-w-2xl text-md md:text-l lg:text-xl text-gray-700">
+                      <p className="mt-4 max-w-2xl text-md md:text-l lg:text-xl text-gray-700">
                         Billed {timeFrame === "Month" ? "monthly" : "annually"}
-                      </Typography>
+                      </p>
                     </Grid>
                   </Grid>
                   <Grid>
-                    <Typography className="pt-2 pl-4 md:pl-8 text-l lg:text-xl">
+                    <p className="pt-2 pl-4 md:pl-8 text-l lg:text-xl">
                       {price}.00
-                    </Typography>
+                    </p>
                   </Grid>
                 </Grid>
               )}
               {timeFrame === "Month" && (
                 <div className="border-2 rounded border-black border-opacity-20 bg-secondary p-2">
                   {smDown ? (
-                    <Grid direction={"row"} spacing={1}>
+                    <Grid
+                      container
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                      }}
+                      spacing={0}
+                    >
                       <Switch onChange={() => setTimeFrame("Year")} />
+                      <p className="p-2 text-md lg:text-l">
+                        Annual Billing
+                        <br />
+                        <span className="bg-tertiary rounded text-quaternary ">
+                          {discount}
+                        </span>
+                      </p>
+                      <Grid className="w-2/5 text-right">
+                        <p className="text-md p-2 lg:text-l">
+                          {annualPrice}.00/ month
+                        </p>
+                      </Grid>
                     </Grid>
                   ) : (
                     <Grid
@@ -156,18 +176,18 @@ export default function CheckoutPage() {
                         className="w-3/5"
                       >
                         <Switch onChange={() => setTimeFrame("Year")} />
-                        <Typography className="p-2 text-md lg:text-l">
+                        <p className="p-2 text-md lg:text-l">
                           Annual Billing
                           <br />
                           <span className="bg-tertiary rounded text-quaternary ">
                             {discount}
                           </span>
-                        </Typography>
+                        </p>
                       </Grid>
                       <Grid className="w-2/5 text-right">
-                        <Typography className="text-md p-2 lg:text-l">
+                        <p className="text-md p-2 lg:text-l">
                           {annualPrice}.00/ month
-                        </Typography>
+                        </p>
                       </Grid>
                     </Grid>
                     // <Grid
@@ -216,14 +236,14 @@ export default function CheckoutPage() {
                     }}
                   >
                     <Grid>
-                      <Typography className=" text-l lg:text-xl text-black ml-4">
+                      <p className=" text-l lg:text-xl text-black ml-4">
                         Subtotal
-                      </Typography>
+                      </p>
                     </Grid>
                     <Grid>
-                      <Typography className=" text-l lg:text-xl text-black mr-4">
+                      <p className=" text-l lg:text-xl text-black mr-4">
                         {price}.00
-                      </Typography>
+                      </p>
                     </Grid>
                   </Grid>
                   <Grid
@@ -235,14 +255,14 @@ export default function CheckoutPage() {
                     }}
                   >
                     <Grid>
-                      <Typography className="max-w-2xl text-l lg:text-xl text-black ml-4">
+                      <p className="max-w-2xl text-l lg:text-xl text-black ml-4">
                         7 Day Trial
-                      </Typography>
+                      </p>
                     </Grid>
                     <Grid>
-                      <Typography className="max-w-2xl text-l lg:text-xl text-red mr-4">
+                      <p className="max-w-2xl text-l lg:text-xl text-red mr-4">
                         ({price}.00)
-                      </Typography>
+                      </p>
                     </Grid>
                   </Grid>
                   <Divider sx={{ my: 3, borderBottomWidth: 5 }} />
@@ -255,14 +275,14 @@ export default function CheckoutPage() {
                     }}
                   >
                     <Grid>
-                      <Typography className="max-w-2xl text-l lg:text-xl text-black ml-4">
+                      <p className="max-w-2xl text-l lg:text-xl text-black ml-4">
                         Total Due Today
-                      </Typography>
+                      </p>
                     </Grid>
                     <Grid>
-                      <Typography className="max-w-2xl text-l lg:text-xl text-black mr-4">
+                      <p className="max-w-2xl text-l lg:text-xl text-black mr-4">
                         $0.00
-                      </Typography>
+                      </p>
                     </Grid>
                   </Grid>
                 </>

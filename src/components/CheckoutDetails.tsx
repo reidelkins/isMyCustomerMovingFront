@@ -1,13 +1,14 @@
 import * as React from "react";
 
 import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
-import { Button, Divider, Grid, Popover, Typography } from "@mui/material";
+import { Button, Divider, Popover, Stack } from "@mui/material";
 
 type Props = {
   price: number;
+  timeFrame: string | string[] | undefined;
 };
 
-export default function BasicPopover({ price }: Props) {
+export default function CheckoutDetails({ price, timeFrame }: Props) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
@@ -28,9 +29,11 @@ export default function BasicPopover({ price }: Props) {
       <Button
         aria-describedby={id}
         onClick={handleClick}
-        className="bg-primary text-black shadow-none"
+        className="bg-primary shadow-none"
       >
-        Details {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+        <p className="text-sm text-black">
+          Details {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+        </p>
       </Button>
       <Popover
         id={id}
@@ -42,60 +45,77 @@ export default function BasicPopover({ price }: Props) {
           horizontal: "left",
         }}
       >
-        <div className="w-screen mx-4 p-4">
-          <Grid container className="w-[90%] flex flex-row justify-between">
-            <Grid>
-              <Typography className=" text-l lg:text-xl font-bold text-black">
+        <div className="w-screen mx-4 p-8">
+          <Stack
+            direction={"row"}
+            className="w-[90%]"
+            spacing={2}
+            justifyContent="space-between"
+          >
+            <Stack direction={"column"}>
+              <p className=" text-l lg:text-xl font-bold text-black">
                 Small Business
-              </Typography>
-              <Typography className=" text-md lg:text-l">
-                Billed Monthly
-              </Typography>
-            </Grid>
-            <Grid>
-              <Typography className=" text-l lg:text-xl text-black">
-                {price}.00
-              </Typography>
-            </Grid>
-          </Grid>
+              </p>
+              <p className=" text-md lg:text-l">
+                Billed {timeFrame === "Month" ? "monthly" : "annually"}
+              </p>
+            </Stack>
+            <p className=" text-l lg:text-xl text-black">{price}.00</p>
+          </Stack>
           <br />
-          <Grid container className="w-[90%] flex flex-row justify-between">
+          <Stack
+            direction={"row"}
+            className="w-[90%]"
+            spacing={2}
+            justifyContent="space-between"
+          >
+            <p className=" text-l lg:text-xl font-bold text-black">Subtotal</p>
+            <p className=" text-l lg:text-xl text-black">{price}.00</p>
+          </Stack>
+          <Stack
+            direction={"row"}
+            className="w-[90%]"
+            spacing={2}
+            justifyContent="space-between"
+          >
+            <p className=" text-l lg:text-xl font-bold text-black">
+              7 Day Trial
+            </p>
+            <p className=" text-l lg:text-xl text-red">({price}.00)</p>
+          </Stack>
+          {/* <Grid container className="w-11/12 flex flex-row justify-between">
             <Grid>
-              <Typography className=" text-l lg:text-xl font-bold text-black">
+              <p className=" text-l lg:text-xl font-bold text-black">
                 Subtotal
-              </Typography>
+              </p>
             </Grid>
             <Grid>
-              <Typography className=" text-l lg:text-xl text-black">
-                {price}.00
-              </Typography>
+              <p className=" text-l lg:text-xl text-black">{price}.00</p>
             </Grid>
-          </Grid>
-          <Grid container className="w-[90%] flex flex-row justify-between">
+          </Grid> */}
+          {/* <Grid container className="w-11/12 flex flex-row justify-between">
             <Grid>
-              <Typography className=" text-l lg:text-xl font-bold text-black">
+              <p className=" text-l lg:text-xl font-bold text-black">
                 7 Day Trial
-              </Typography>
+              </p>
             </Grid>
             <Grid>
-              <Typography className=" text-l lg:text-xl text-red">
-                ({price}.00)
-              </Typography>
+              <p className=" text-l lg:text-xl text-red">({price}.00)</p>
             </Grid>
-          </Grid>
+          </Grid> */}
           <Divider className="w-[90%] my-3 border-b-5" />
-          <Grid container className="w-[90%] flex flex-row justify-between">
-            <Grid>
-              <Typography className=" text-l lg:text-xl font-bold text-black">
-                Total Today
-              </Typography>
-            </Grid>
-            <Grid>
-              <Typography className=" text-l lg:text-xl text-black">
-                $0.00
-              </Typography>
-            </Grid>
-          </Grid>
+          <Stack
+            direction={"row"}
+            className="w-[90%]"
+            spacing={2}
+            justifyContent="space-between"
+          >
+            <p className=" text-l lg:text-xl font-bold text-black">
+              Total Today
+            </p>
+
+            <p className=" text-l lg:text-xl text-black">$0.00</p>
+          </Stack>
         </div>
       </Popover>
     </div>
