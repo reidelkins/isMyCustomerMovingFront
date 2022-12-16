@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 
 import About from "../components/About";
 import Analytics from "../components/Analytics";
@@ -12,6 +12,19 @@ import MainHero from "../components/MainHero";
 import MainHeroImage from "../components/MainHeroImage";
 import PriceTable from "../components/PriceTable";
 import Team from "../components/Team";
+
+declare global {
+  namespace JSX {
+    interface StripePricingTableAttributes extends HTMLAttributes<HTMLElement> {
+      "pricing-table-id": string;
+      "publishable-key": string;
+    }
+
+    interface IntrinsicElements {
+      "stripe-pricing-table": StripePricingTableAttributes;
+    }
+  }
+}
 
 const App = () => {
   return (
@@ -46,6 +59,10 @@ const App = () => {
       <LazyShow>
         <>
           <ContactUs />
+          {/* <stripe-pricing-table
+            pricing-table-id="prctbl_1M9f85AkLES5P4qQFKlOhCEH"
+            publishable-key="pk_live_51M6hOpAkLES5P4qQffd8CGkONBH4nNdEfxbyhrMh4k73AVs6cVhjPnREG9u6emOKp0vocg4GK95NHov7IngdJJnB00vtJDrTb9"
+          ></stripe-pricing-table> */}
         </>
       </LazyShow>
       <LazyShow>

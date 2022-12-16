@@ -12,6 +12,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap"
             rel="stylesheet"
           />
+          <script
+            async
+            src="https://js.stripe.com/v3/pricing-table.js"
+          ></script>
         </Head>
         <body>
           <Main />
