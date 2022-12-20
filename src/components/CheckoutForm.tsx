@@ -6,7 +6,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { useRouter } from "next/router";
-import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
+import PhoneInput from "react-phone-number-input";
 
 // api
 import ApiService from "../pages/api/checkout";
@@ -27,13 +27,12 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
   const stripe = useStripe();
   const elements = useElements();
 
+  // const API_URL = "http://localhost:3007";
+  const API_URL = "https://ismycustomermoving.com";
   useEffect(() => {}, [cardError]);
 
   const handlePhoneError = () => {
-    const err = isPossiblePhoneNumber(phone)
-      ? undefined
-      : "Invalid phone number";
-    return phone ? err : "Phone number is required";
+    return "Valid Phone number is required";
   };
 
   // Handle form submission.
@@ -47,11 +46,14 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
       .confirmSetup({
         elements,
         confirmParams: {
-          return_url: "/success/",
+          return_url: `${API_URL}/success/`,
         },
         redirect: "if_required",
       })
       .then((result) => {
+        console.log(email);
+        console.log(phone);
+        console.log(company);
         ApiService.saveStripeInfo({
           email,
           company,
