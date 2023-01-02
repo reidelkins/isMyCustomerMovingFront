@@ -190,37 +190,6 @@ export default function CheckoutPage() {
                         </p>
                       </Grid>
                     </Grid>
-                    // <Grid
-                    //   container
-                    //   style={{
-                    //     display: "flex",
-                    //     flexDirection: "row",
-                    //     justifyContent: "space-between",
-                    //   }}
-                    // >
-                    //   <Grid>
-                    //     <Switch
-                    //       onChange={() => setTimeFrame("Year")}
-                    //       className="mt-1"
-                    //       size="small"
-                    //     />
-                    //   </Grid>
-                    //   <Grid>
-                    //     <div className="w-1/2 md:w-2/5">
-                    //       <Typography className="max-w-l text-sm lg:text-l text-black font-bold">
-                    //         Save with annual billing
-                    //         <span className="bg-tertiary rounded mx-1 p-1 text-quaternary ">
-                    //           Free Month!
-                    //         </span>
-                    //       </Typography>
-                    //     </div>
-                    //   </Grid>
-                    //   <Grid>
-                    //     <Typography className="text-sm lg:text-xl ">
-                    //       {annualPrice}.00/year
-                    //     </Typography>
-                    //   </Grid>
-                    // </Grid>
                   )}
                 </div>
               )}
@@ -304,43 +273,3 @@ export default function CheckoutPage() {
     </section>
   );
 }
-
-// <Stack
-//   direction={"row"}
-//   spacing={1}
-//   className="h-16 my-auto"
-// >
-//   <Switch onChange={() => setTimeFrame("Year")} />
-//   <Typography className="text-sx text-black">
-//     Switch To Annual Plan
-//   </Typography>
-//   <Box display="inline" className="bg-tertiary rounded">
-//     <Typography
-//       display="inline"
-//       className="text-xs text-quaternary text-bold"
-//     >
-//       Free Month
-//     </Typography>
-//   </Box>
-//   <Typography className="text-xs text-black">
-//     {price / 12}.00/year
-//   </Typography>
-// </Stack>
-// <Stack direction={"row"} spacing={1} className="m-4">
-//   <Switch
-//     onChange={() => setTimeFrame("Year")}
-//     className="mt-1"
-//     size="small"
-//   />
-//   <div className="w-1/2 md:w-2/5">
-//     <Typography className="max-w-l text-sm lg:text-l text-black font-bold">
-//       Save with annual billing
-//       <span className="bg-tertiary rounded mx-1 p-1 text-quaternary ">
-//         Free Month!
-//       </span>
-//     </Typography>
-//   </div>
-//   <Typography className="text-sm lg:text-xl pl-8 md:pl-20 lg:pl-40 pt-8 lg:pt-0 ">
-//     {annualPrice}.00/year
-//   </Typography>
-// </Stack>
