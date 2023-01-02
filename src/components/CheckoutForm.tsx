@@ -51,9 +51,6 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
         redirect: "if_required",
       })
       .then((result) => {
-        console.log(email);
-        console.log(phone);
-        console.log(company);
         ApiService.saveStripeInfo({
           email,
           company,

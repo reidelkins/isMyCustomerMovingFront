@@ -54,7 +54,7 @@
     "img": "/assets/images/home.jpg",
     "primaryAction": {
       "text": "Get started",
-      "href": "https://app.ismycustomermoving.com/register"
+      "href": "/#pricing"
     },
     "secondaryAction": {
       "text": "Login",
