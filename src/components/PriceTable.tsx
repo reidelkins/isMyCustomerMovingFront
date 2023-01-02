@@ -21,8 +21,14 @@ const BlinkedBox = styled("div")({
 });
 
 const PriceCard = ({ plan, timeSpan }: PriceTableProps) => {
-  const planLink = `/checkout/${timeSpan}/${plan?.name}`;
-  const checkoutLink = plan?.name !== "Enterprise" ? planLink : "/#contact";
+  // const planLink = `/checkout/${timeSpan}/${plan?.name}`;
+  let checkoutLink = "/#contact";
+  if (timeSpan === "Month") {
+    checkoutLink = plan?.checkoutLink.Month;
+  } else {
+    checkoutLink = plan?.checkoutLink.Annual;
+  }
+  console.log("checkoutLink", checkoutLink);
 
   return (
     <div className="w-full md:w-1/2 lg:w-1/4 px-3 ">
