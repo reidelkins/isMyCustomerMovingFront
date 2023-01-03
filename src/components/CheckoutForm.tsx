@@ -27,8 +27,8 @@ export default function CheckoutForm({ timeFrame, tier }: Props) {
   const stripe = useStripe();
   const elements = useElements();
 
-  const API_URL = "http://localhost:3007";
-  // const API_URL = "https://ismycustomermoving.com";
+  // const API_URL = "http://localhost:3007";
+  const API_URL = "https://ismycustomermoving.com";
   useEffect(() => {}, [cardError]);
 
   const handlePhoneError = () => {
