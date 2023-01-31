@@ -8,10 +8,10 @@ import { loadStripe } from "@stripe/stripe-js/pure";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import CheckoutDetails from "../../../components/CheckoutDetails";
-import CheckoutForm from "../../../components/CheckoutForm";
-import config from "../../../config/index.json";
-import ApiService from "../../api/checkout";
+import CheckoutDetails from "../../../../components/CheckoutDetails";
+import CheckoutForm from "../../../../components/CheckoutForm";
+import config from "../../../../config/index.json";
+import ApiService from "../../../api/checkout";
 
 const ContentStyle = styled("div")(() => ({
   maxWidth: 480,

@@ -113,13 +113,20 @@
         "prices": {
           "Month": "$150",
           "Annual": "$1620",
-          "AnnualMonth": "$135"
+          "AnnualMonth": "$135",
+          "RecentlySoldMonth": "$250",
+          "RecentlySoldAnnual": "$2620"
         },
         "checkoutLink": {
           "Month": "https://buy.stripe.com/7sI7tU2Sp72S0o03cc",
           "Annual": "https://buy.stripe.com/00g01s50x72SgmY9AB"
         },
+        "withRealEstateLink": {
+          "Month": "https://buy.stripe.com/7sI4hI0Kh1Iy1s4fZa",
+          "Annual": "https://buy.stripe.com/aEUg0qakRgDsfiU4gt"
+        },
         "description": "For businesses with less than 5000 customers",
+        "recentlySoldDescription": "For businesses with less than 5000 customers and get data for all homes recently sold in your area",
         "callToAction": {
           "text": "Subscribe to Small Business"
         },
@@ -136,13 +143,20 @@
         "prices": {
           "Month": "$250",
           "Annual": "2700",
-          "AnnualMonth": "$225"
+          "AnnualMonth": "$225",
+          "RecentlySoldMonth": "$350",
+          "RecentlySoldAnnual": "$3700"
         },
         "checkoutLink": {
           "Month": "https://buy.stripe.com/4gw6pQcsZ3QG7Qs5km",
           "Annual": "https://buy.stripe.com/5kA7tU50xfzodaMfZ1"
         },
+        "withRealEstateLink": {
+          "Month": "https://buy.stripe.com/9AQaG6gJfcncc6IdR0",
+          "Annual": "https://buy.stripe.com/3csdSicsZ4UKb2EeV5"
+        },
         "description": "For businesses with less than 10000 customers",
+        "recentlySoldDescription": "For businesses with less than 10000 customers and get data for all homes recently sold in your area",
         "callToAction": {
           "text": "Subscribe to Franchise"
         },
@@ -160,13 +174,20 @@
         "prices": {
           "Month": "$400",
           "Annual": "$4320",
-          "AnnualMonth": "$360"
+          "AnnualMonth": "$360",
+          "RecentlySoldMonth": "$500",
+          "RecentlySoldAnnual": "$5320"
         },
         "checkoutLink": {
           "Month": "https://buy.stripe.com/9AQaG678F86W3Ac6os",
           "Annual": "https://buy.stripe.com/5kA9C2csZ5YOb2E7sx"
         },
+        "withRealEstateLink": {
+          "Month": "https://buy.stripe.com/7sI29AgJf2MCgmY4go",
+          "Annual": "https://buy.stripe.com/dR65lM9gNdrgdaM9AJ"
+        },
         "description": "For businesses with less than 20000 customers",
+        "recentlySoldDescription": "For businesses with less than 20000 customers and get data for all homes recently sold in your area",
         "callToAction": {
           "text": "Subscribe to Large Business"
         },
@@ -182,13 +203,20 @@
         "name": "Enterprise",
         "prices": {
           "Month": "Custom",
-          "Annual": "Custom"
+          "Annual": "Custom",
+          "RecentlySoldMonth": "Custom",
+          "RecentlySoldAnnual": "Custom"
         },
         "checkoutLink": {
           "Month": "/#contact",
           "Annual": "/#contact"
         },
+        "withRealEstateLink": {
+          "Month": "",
+          "Annual": ""
+        },
         "description": "For businesses with over 20000 customers",
+        "recentlySoldDescription": "For businesses with over 20000 customers and get data for all homes recently sold in your area",
         "callToAction": {
           "text": "Contact Us to Learn More"
         },
