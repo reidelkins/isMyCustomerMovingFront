@@ -5,3 +5,4 @@ export const chunkArr = <T>(arr: Array<T>, chunkSize: number) => {
   }
   return chunked;
 };
+export const grpahCMSImageLoader = ({ src }: any) => src;
