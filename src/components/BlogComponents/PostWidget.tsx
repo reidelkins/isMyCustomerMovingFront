@@ -7,7 +7,7 @@ import {
   grpahCMSImageLoader,
   getSimilarPosts,
   getRecentPosts,
-} from "../../utils/utils";
+} from "../../pages/api/posts";
 
 type Props = {
   slug: string;

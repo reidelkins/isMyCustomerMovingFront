@@ -749,8 +749,8 @@ export default function PriceTable() {
 
   return (
     <>
-      <section className={`bg-background py-8`} id="pricing">
-        <div className={`container mx-auto px-2 pt-4 pb-12 `}>
+      <section className={`bg-background pt-8`} id="pricing">
+        <div className={`container mx-auto px-2 pt-4 `}>
           <div className="container">
             <div className="flex flex-wrap -mx-4">
               <div className="w-full px-4">

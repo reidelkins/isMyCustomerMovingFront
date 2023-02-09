@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 // import { PostCard, PostWidget } from "../components/BlogComponents";
 import PostCard from "../components/BlogComponents/PostCard";
 import PostWidget from "../components/BlogComponents/PostWidget";
-import { getPosts } from "../utils/utils";
+import { getPosts } from "./api/posts";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<any>([]);
