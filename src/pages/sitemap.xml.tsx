@@ -1,6 +1,7 @@
 import glob from "glob";
 
 import { getPosts } from "./api/posts";
+
 const Sitemap = () => {
   return null;
 };
