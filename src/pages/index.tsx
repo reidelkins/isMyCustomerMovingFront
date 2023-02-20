@@ -12,7 +12,7 @@ import FAQ from "../components/FAQ";
 import LazyShow from "../components/LazyShow";
 import MainHero from "../components/MainHero";
 import MainHeroImage from "../components/MainHeroImage";
-import PriceTable from "../components/PriceTable";
+// import PriceTable from "../components/PriceTable";
 import Team from "../components/Team";
 import ROICalculator from "../components/ROICalculator";
 
@@ -53,7 +53,7 @@ const App = ({ blogs }: any) => {
       <LazyShow>
         <>
           <ContactUs />
-          <PriceTable />
+          {/* <PriceTable /> */}
         </>
       </LazyShow>
       <LazyShow>

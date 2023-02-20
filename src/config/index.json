@@ -38,9 +38,9 @@
       "hrefElse": "/#blog"
     },
     {
-      "name": "Pricing",
-      "hrefHome": "pricing",
-      "hrefElse": "/#pricing"
+      "name": "Contact Us",
+      "hrefHome": "contact",
+      "hrefElse": "/#contact"
     },
     {
       "name": "FAQ",
