@@ -44,16 +44,16 @@ const App = ({ blogs }: any) => {
       </LazyShow>
       <LazyShow>
         <>
-          {/* <HowTo /> */}
-          <Team />
-          <Blog blogs={blogs} />
-          <Canvas />
+          <ContactUs />
+          {/* <PriceTable /> */}
         </>
       </LazyShow>
       <LazyShow>
         <>
-          <ContactUs />
-          {/* <PriceTable /> */}
+          {/* <HowTo /> */}
+          <Team />
+          <Blog blogs={blogs} />
+          <Canvas />
         </>
       </LazyShow>
       <LazyShow>

@@ -55,11 +55,12 @@
   "mainHero": {
     "title": "Don't Lose Your Customers,",
     "subtitle": "Move With Them!",
+    "preDescription": "Sell to existing customers when they are ready to buy again! ",
     "description": "You don't know when your customers are moving, and they're too busy to remember your name. We instantly notify you when your customers list their home for sale, so you can be the first one to the new home.",
     "img": "/assets/images/home.jpg",
     "primaryAction": {
-      "text": "Get started",
-      "href": "/#pricing"
+      "text": "Try For Free",
+      "href": "/#contact"
     },
     "secondaryAction": {
       "text": "Login",
